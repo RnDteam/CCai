@@ -51,7 +51,7 @@ def Start():
     global CURRENT_STATE
     CURRENT_STATE = States.States.EntityExtraction
 
-    user_input = None
+    user_input = input("היי, נבראתי על מנת לחסוך לך זמן.\n בוא ספר לי מה אתה זומם?\n")
     isClear = True
 
     while user_input != "end":
@@ -59,14 +59,12 @@ def Start():
         if CURRENT_STATE == States.States.EntityExtraction:
             Logger.Log.DebugPrint("States.EntityExtraction")
 
-            if isClear == True:
-                user_input = input("היי, נבראתי על מנת לחסוך לך זמן.\n בוא ספר לי מה אתה זומם?\n")
-            else:
+            if isClear == False:
                 user_input = input("תאמת לא הבנתי מה רצית, תרשום שוב\n")
 
             isClear = ExtractEntity(user_input)
         if CURRENT_STATE == States.States.IntentRecognition:
-            ''' This question might be button later '''
+            ''' This question might be a button later '''
             if isClear == True:
                 user_input = input(CURRENT_ENTITY.AskUserForAction() + '?\n')
             else:
@@ -83,6 +81,10 @@ def Start():
             ''' TODO: ask if user need something else '''
             print("טוב אני סיימתי פה סלאמאת")
             break
+
+        ''' TODO: instead of טעיתי create a file with all synonyms for it '''
+        if user_input == "טעיתי" and CURRENT_STATE != States.States.EntityExtraction:
+            CURRENT_STATE = States.States(CURRENT_STATE.value - 1)
 
 if __name__ == '__main__':
     InitEntities()

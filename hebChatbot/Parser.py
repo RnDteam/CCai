@@ -1,6 +1,3 @@
-from enum import Enum
-
-
 ''' Parser class
 it expects the conversation file of each action would follow basic rule:
     input line would be in: שם-שדה,טיפוס-נתונים,אורך-קלט

@@ -46,7 +46,6 @@ class Action:
 
                 convMemory[input_validation[Parser.Parser.FieldNameIndex]] = user_input
 
-
         print(convMemory)
         ''' TODO: show summary and wait for user's approval '''
 

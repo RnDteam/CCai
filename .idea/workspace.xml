@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a1298f8-8142-4523-b7d4-bbcc4d7b95c3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hebChatbot/Logger.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hebChatbot/Parser.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CCai.iml" afterPath="$PROJECT_DIR$/.idea/CCai.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/Action.py" afterPath="$PROJECT_DIR$/hebChatbot/Action.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Conversation.txt" afterPath="$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Conversation.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/Parser.py" afterPath="$PROJECT_DIR$/hebChatbot/Parser.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/main.py" afterPath="$PROJECT_DIR$/hebChatbot/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Action.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Action.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hebChatbot/Action.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+            <state relative-caret-position="521">
+              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -40,8 +35,8 @@
       <file leaf-file-name="Parser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hebChatbot/Parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+            <state relative-caret-position="-227">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -51,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Conversation.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+              <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -63,20 +58,6 @@
             <state relative-caret-position="0">
               <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1485267458709" expanded="true" signature="30817:30834" ph="..." />
-                <marker date="1485267458709" expanded="true" signature="30817:30852" ph="..." />
-                <marker date="1485267458709" expanded="true" signature="30817:30865" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -93,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hebChatbot/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="82" column="57" lean-forward="true" selection-start-line="82" selection-start-column="57" selection-end-line="82" selection-end-column="57" />
+            <state relative-caret-position="595">
+              <caret line="85" column="85" lean-forward="true" selection-start-line="85" selection-start-column="85" selection-end-line="85" selection-end-column="85" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -108,8 +89,8 @@
       <file leaf-file-name="States.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hebChatbot/States.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="51">
+              <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -137,11 +118,11 @@
       <list>
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/hebChatbot/Entities/Parser.py" />
-        <option value="$PROJECT_DIR$/hebChatbot/Parser.py" />
         <option value="$PROJECT_DIR$/hebChatbot/Logger.py" />
-        <option value="$PROJECT_DIR$/hebChatbot/main.py" />
-        <option value="$PROJECT_DIR$/hebChatbot/Action.py" />
         <option value="$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Conversation.txt" />
+        <option value="$PROJECT_DIR$/hebChatbot/Parser.py" />
+        <option value="$PROJECT_DIR$/hebChatbot/Action.py" />
+        <option value="$PROJECT_DIR$/hebChatbot/main.py" />
       </list>
     </option>
   </component>
@@ -166,6 +147,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -260,8 +243,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -504,6 +485,74 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/hebChatbot/Action.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Conversation.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entity.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/States.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Action.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
@@ -514,11 +563,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1485267458709" expanded="true" signature="30817:30834" ph="..." />
-            <marker date="1485267458709" expanded="true" signature="30817:30852" ph="..." />
-            <marker date="1485267458709" expanded="true" signature="30817:30865" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -586,10 +631,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/States.py">
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entity.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Conversation.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -598,21 +653,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1485267458709" expanded="true" signature="30817:30834" ph="..." />
-            <marker date="1485267458709" expanded="true" signature="30817:30852" ph="..." />
-            <marker date="1485267458709" expanded="true" signature="30817:30865" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Entity.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -624,37 +665,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/States.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hebChatbot/Parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Action.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Conversation.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        <state relative-caret-position="-227">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hebChatbot/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="82" column="57" lean-forward="true" selection-start-line="82" selection-start-column="57" selection-end-line="82" selection-end-column="57" />
+        <state relative-caret-position="595">
+          <caret line="85" column="85" lean-forward="true" selection-start-line="85" selection-start-column="85" selection-end-line="85" selection-end-column="85" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Action.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
