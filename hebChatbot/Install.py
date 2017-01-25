@@ -1,22 +1,28 @@
 import webbrowser
 import socket
-
 from uuid import getnode as get_mac
+#import urllib
 
-import urllib
+class Install:
 
-webbrowser.open('http://download.winzip.com/gl/nkln/winzip21.exe')#ip host mac address
+    def __init__(self):
+        self.mac = get_mac()
+        self.ip = socket.gethostbyname(socket.gethostname())
+        self.host = socket.gethostname()
+    def openExe(self):
+        webbrowser.open('http://download.winzip.com/gl/nkln/winzip21.exe')#ip host mac address
+        #testfile = urllib.URLopener()
+        #testfile.retrieve("http://download.winzip.com/gl/nkln/winzip21.exe", "f")
 
+    def showInfo(self):
+        print self.mac,self.ip,self.host
 
-testfile = urllib.URLopener()
-testfile.retrieve("http://download.winzip.com/gl/nkln/winzip21.exe", "f")
-
-
-print get_mac()
-print socket.gethostbyname(socket.gethostname())
-print socket.gethostname()
-
+if __name__ == '__main__':
+    inst = Install()
+    inst.openExe()
+    inst.showInfo()
 """
+
 import mechanize
 from time import sleep
 #Make a Browser (think of this as chrome or firefox etc)
