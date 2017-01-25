@@ -1,4 +1,4 @@
-import States
+import States, Parser, Logger
 
 class Action:
     def __init__(self, rootDir, entityName, actionName, spellingFileName, conversationFileName, entityNameHeb):
@@ -20,6 +20,7 @@ class Action:
 
     def StartConversation(self):
         user_input = None
+        convMemory = {}
 
         file = open(self.rootDir + '/' + self.entityName + '/' + self.actionName + '/' + self.conversationFileName,
                     encoding='utf-8')
@@ -32,6 +33,21 @@ class Action:
                 but as we create a parser class we would implement that'''
                 print(row_input.split("out:")[1])
             elif row_input.startswith("in:"):
-                user_input = input("מצפה ל " + row_input.split("in:")[1] + '\n')
+                input_validation = row_input.split("in:")[1].replace(" ","").split(",")
+                Logger.Log.DebugPrint("מצפה ל " + row_input.split("in:")[1])
+                user_input = input()
+                ''' Validate input '''
+                parserAnswer = Parser.Parser.CheckInput(user_input, input_validation)
+                ''' ParserAnswer is an array that contains - Boolean and string that says what went wrong'''
+                while parserAnswer[0] == False:
+                    print(parserAnswer[1])
+                    user_input = input()
+                    parserAnswer = Parser.Parser.CheckInput(user_input, input_validation)
+
+                convMemory[input_validation[Parser.Parser.FieldNameIndex]] = user_input
+
+
+        print(convMemory)
+        ''' TODO: show summary and wait for user's approval '''
 
         return States.States.ActionDone
