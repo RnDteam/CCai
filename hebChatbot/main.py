@@ -15,7 +15,6 @@ conversationFile = "Conversation.txt"
 entityDir = 'Entities'
 rootDir = os.path.join(os.path.dirname(__file__), entityDir)
 
-UserStatus.UserMemory()
 
 def InitEntities():
     entities = os.listdir(rootDir)
