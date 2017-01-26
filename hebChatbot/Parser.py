@@ -47,3 +47,14 @@ class Parser():
             return (False)
         else:
             return (True)
+
+class ParserInput():
+    def __init__(self, args):
+        self.fieldName = args[Parser.FieldNameIndex]
+        if len(args) > Parser.InputTypeIndex:
+            self.dataType = args[Parser.InputTypeIndex]
+        if len(args) > Parser.InputLengthIndex:
+            self.length = args[Parser.InputLengthIndex]
+
+    def toArray(self):
+        return [self.fieldName, self.dataType, self.length]
