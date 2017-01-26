@@ -1,5 +1,9 @@
+#!python2
+#coding: utf8
 import os
-import Entity, States, Logger
+import hebChatbot.Entity as Entity
+import hebChatbot.States as States
+import hebChatbot.Logger as Logger
 
 ENTITIES = []
 CURRENT_STATE = None
