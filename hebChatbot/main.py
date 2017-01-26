@@ -67,7 +67,6 @@ def Start():
                 user_input = input("תאמת לא הבנתי מה רצית, תרשום שוב\n")
 
             isClear = ExtractEntity(user_input)
-            print(isClear)
         if CURRENT_STATE == States.States.IntentRecognition:
             ''' This question might be a button later '''
             if isMistaken == True:
