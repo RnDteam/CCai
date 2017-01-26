@@ -18,7 +18,8 @@ class Entity:
     def InitSpellingBank(self, rootDir):
         file = open(rootDir + '/' + self.entityFileName + '/' + self.spellingFileName, encoding='utf-8')
         self.spelling = [line.rstrip('\n') for line in file]
-        self.entityNameHeb = self.spelling[0]
+        if len(self.spelling) > 0:
+            self.entityNameHeb = self.spelling[0]
 
     def AskUserForAction(self):
         ''' TODO check if there are two action -
