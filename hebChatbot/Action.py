@@ -20,7 +20,7 @@ class Action:
 
     def StartConversation(self):
         user_input = None
-        convMemory = {}
+        global convMemory
 
         file = open(self.rootDir + '/' + self.entityName + '/' + self.actionName + '/' + self.conversationFileName,
                     encoding='utf-8')

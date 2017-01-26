@@ -51,21 +51,26 @@ def Start():
     global CURRENT_STATE
     CURRENT_STATE = States.States.EntityExtraction
 
-    user_input = input("היי, נבראתי על מנת לחסוך לך זמן.\n בוא ספר לי מה אתה זומם?\n")
+    print("היי, נבראתי על מנת לחסוך לך זמן.")
     isClear = True
     isMistaken = False
+    strPrint = ""
+    user_input = None
 
     while user_input != "end":
         ''' switch case in python is quite weird. thus using if statements '''
         if CURRENT_STATE == States.States.EntityExtraction:
-            Logger.Log.DebugPrint("States.EntityExtraction")
-
-            if isMistaken == True:
-                user_input = input("הבנתי שטעית. אז במה תרצה שאטפל?\n")
+            if isMistaken == False and isClear == True:
+                strPrint = "בוא ספר לי מה אתה זומם?\n"
+            elif isMistaken == True:
+                strPrint = "הבנתי שטעית. אז במה תרצה שאטפל?\n"
                 isMistaken = False
             elif isClear == False:
-                user_input = input("תאמת לא הבנתי מה רצית, תרשום שוב\n")
+                strPrint = "תאמת לא הבנתי מה רצית, תרשום שוב\n"
 
+            user_input = input(strPrint)
+
+            Logger.Log.DebugPrint("States.EntityExtraction")
             isClear = ExtractEntity(user_input)
         if CURRENT_STATE == States.States.IntentRecognition:
             ''' This question might be a button later '''
@@ -92,11 +97,21 @@ def Start():
                 isMistaken = True
 
         if CURRENT_STATE == States.States.ActionDone:
-            ''' TODO: ask if user need something else '''
-            print("טוב אני סיימתי פה סלאמאת")
-            break
+            if isClear == False:
+                user_input = input("לא ממש הבנתי. אתה צריך משהו נוסף?\n")
+            else:
+                user_input = input("אין בעיה דאגתי לך. יש עוד משהו שאוכל לעזור בו?\n")
 
-        ''' TODO: instead of טעיתי create a file with all synonyms for it '''
+            if UserStatus.IsApproved(user_input):
+                CURRENT_STATE = States.States.EntityExtraction
+                isMistaken = False
+                isClear = True
+            elif UserStatus.IsDenied(user_input):
+                print("טוב אני סיימתי פה סלאמאת")
+                break
+            else:
+                isClear = False
+
         if UserStatus.IsMistaken(user_input) and CURRENT_STATE != States.States.EntityExtraction:
             CURRENT_STATE = States.States(CURRENT_STATE.value - 1)
             isMistaken = True
