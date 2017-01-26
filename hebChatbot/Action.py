@@ -1,5 +1,7 @@
-import States, Parser, Logger, UserStatus
-
+import hebChatbot.States as States
+import hebChatbot.Logger as Logger
+import hebChatbot.Parser as Parser
+import hebChatbot.UserStatus as UserStatus
 class Action:
     def __init__(self, rootDir, entityName, actionName, spellingFileName, conversationFileName, entityNameHeb):
         self.rootDir = rootDir
@@ -107,4 +109,8 @@ class Action:
             ''' TODO: be able to change user's details if he says something is not accurate  '''
             return States.States.ActionDone
 
+        path = 'Entities.' + self.entityName + '.' +self.actionName+'.Run'
+        runMethod = __import__("hebChatbot."+path)
+        exec("runMethod."+path+".run()")
         return States.States.ActionDone
+

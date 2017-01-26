@@ -1,5 +1,8 @@
 import os
-import Entity, States, Logger, UserStatus
+import hebChatbot.Entity as Entity
+import hebChatbot.States as States
+import hebChatbot.Logger as Logger
+import hebChatbot.UserStatus as UserStatus
 
 ENTITIES = []
 CURRENT_STATE = None
