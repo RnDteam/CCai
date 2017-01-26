@@ -6,13 +6,13 @@ CURRENT_STATE = None
 CURRENT_ENTITY = None
 CURRENT_ACTION = None
 
-entityDir = 'Entities'
-
-rootDir = os.path.join(os.path.dirname(__file__), entityDir)
-print(rootDir)
 operationDir = 'Operations'
 spellingFile = "Spelling.txt"
 conversationFile = "Conversation.txt"
+entityDir = 'Entities'
+rootDir = os.path.join(os.path.dirname(__file__), entityDir)
+
+UserStatus.UserMemory()
 
 def InitEntities():
     entities = os.listdir(rootDir)
@@ -37,13 +37,25 @@ def FindAction(user_input):
     global CURRENT_STATE
     global CURRENT_ACTION
 
-    for word in user_input.split(" "):
-        for action in CURRENT_ENTITY.actions:
-            if word in action.spelling:
-                Logger.Log.DebugPrint("Found Action-" + word)
-                CURRENT_ACTION = action
-                CURRENT_STATE = States.States.ExecutingAction
-                return True
+    ''' if there's one action - then it is Yes No question '''
+    if len(CURRENT_ENTITY.actions) == 1:
+        if UserStatus.IsApproved(user_input):
+            Logger.Log.DebugPrint("Found Action")
+            CURRENT_ACTION = CURRENT_ENTITY.actions[0]
+            CURRENT_STATE = States.States.ExecutingAction
+            return True
+        elif UserStatus.IsDenied(user_input):
+            return False
+        else:
+            return False
+    else:
+        for word in user_input.split(" "):
+            for action in CURRENT_ENTITY.actions:
+                if word in action.spelling:
+                    Logger.Log.DebugPrint("Found Action-" + word)
+                    CURRENT_ACTION = action
+                    CURRENT_STATE = States.States.ExecutingAction
+                    return True
 
     return False
 

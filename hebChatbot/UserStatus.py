@@ -1,6 +1,7 @@
 import os
 
-convMemory = {}
+class UserMemory():
+    convMemory = {}
 
 def IsMistaken(user_input):
     return CheckIfWordInFile(user_input, os.path.dirname(__file__)
