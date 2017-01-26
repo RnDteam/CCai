@@ -22,9 +22,6 @@ class Entity:
             self.entityNameHeb = self.spelling[0]
 
     def AskUserForAction(self):
-        ''' TODO check if there are two action -
-        but for now the default behaviour is to ask user to what action he meant '''
-
         actions = "רק לוודא, התכוונת ל\n"
         for action in self.actions:
             actions += action.actionNameHeb + ' ' + action.entityNameHeb + '\nאו\n'

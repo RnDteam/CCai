@@ -22,7 +22,7 @@ class Action:
 
     def StartConversation(self):
         user_input = None
-        convMemory = {}
+
 
         file = open(self.rootDir + '/' + self.entityName + '/' + self.actionName + '/' + self.conversationFileName,
                     encoding='utf-8')
@@ -46,9 +46,21 @@ class Action:
                 print(row_input.split("out:")[1])
             elif row_input.startswith("in:"):
                 input_validation = row_input.split("in:")[1].replace(" ", "").split(",")
-
                 Logger.Log.DebugPrint("מצפה ל " + row_input.split("in:")[1])
-                user_input = input()
+
+                ''' Checking if the input we need has already been given '''
+                if input_validation[Parser.Parser.FieldNameIndex] in UserStatus.UserMemory.convMemory:
+                    ''' Ask if our memory value refers to him '''
+                    user_input = input("האם זה " + UserStatus.UserMemory.convMemory[input_validation[Parser.Parser.FieldNameIndex]] + "\n")
+
+                    if UserStatus.IsApproved(user_input):
+                        user_input = UserStatus.UserMemory.convMemory[input_validation[Parser.Parser.FieldNameIndex]]
+                    elif UserStatus.IsDenied(user_input):
+                        user_input = input("אוקיי בבקשה הזן את המידע מחדש\n")
+                    else:
+                        user_input = input("אוקיי בבקשה הזן את המידע מחדש\n")
+                else:
+                    user_input = input()
 
                 ''' Checking if user is being mistaken '''
                 if UserStatus.IsMistaken(user_input):
@@ -80,11 +92,23 @@ class Action:
                     user_input = input()
                     parserAnswer = Parser.Parser.CheckInput(user_input, input_validation)
 
-                convMemory[input_validation[Parser.Parser.FieldNameIndex]] = user_input
+                UserStatus.UserMemory.convMemory[input_validation[Parser.Parser.FieldNameIndex]] = user_input
             row_index += 1
 
-        print(convMemory)
-        ''' TODO: show summary and wait for user's approval '''
+        print("אימות פרטים:\n")
+        for inputObj in inputs_arr:
+            print(inputObj[1].fieldName + ": ")
+            print(UserStatus.UserMemory.convMemory[inputObj[1].fieldName])
+
+        print("פרטיך נכונים?")
+        user_input = input()
+
+        if UserStatus.IsApproved(user_input):
+            return States.States.ActionDone
+        elif UserStatus.IsDenied(user_input):
+            ''' TODO: be able to change user's details if he says something is not accurate  '''
+            return States.States.ActionDone
+
         path = 'Entities.' + self.entityName + '.' +self.actionName+'.Run'
         runMethod = __import__("hebChatbot."+path)
         exec("runMethod."+path+".run()")
