@@ -1,5 +1,5 @@
 import os
-import Action
+import hebChatbot.Action as Action
 
 class Entity:
 
@@ -10,7 +10,6 @@ class Entity:
         self.actions = []
         self.entityNameHeb = ""
         self.InitSpellingBank(rootDir)
-
         actionsNames = os.listdir(rootDir + '/' + entityFileName)
         for action in actionsNames:
             if("." not in action):

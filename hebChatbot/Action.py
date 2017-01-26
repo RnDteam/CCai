@@ -1,5 +1,7 @@
-import States, Parser, Logger, UserStatus
-
+import hebChatbot.States as States
+import hebChatbot.Logger as Logger
+import hebChatbot.Parser as Parser
+import hebChatbot.UserStatus as UserStatus
 class Action:
     def __init__(self, rootDir, entityName, actionName, spellingFileName, conversationFileName, entityNameHeb):
         self.rootDir = rootDir
@@ -83,5 +85,8 @@ class Action:
 
         print(convMemory)
         ''' TODO: show summary and wait for user's approval '''
-
+        path = 'Entities.' + self.entityName + '.' +self.actionName+'.Run'
+        runMethod = __import__("hebChatbot."+path)
+        exec("runMethod."+path+".run()")
         return States.States.ActionDone
+
