@@ -32,19 +32,21 @@ class Action:
         row_index = 0
         index_input_arr = 0
         isMistaken = False
+        isInputSaved = False
 
         while row_index < len(self.conversation):
             row_input = self.conversation[row_index]
+
             if isMistaken == True:
                 isMistaken = False
                 print("בסדר, זה אנושי לטעות.")
-            ''' We would prefer to have a parser class
-             which handles the conversation file '''
-            if row_input.startswith("out:"):
+
+            ''' Detect if input or output '''
+            if row_input.find("out:") > -1:
                 ''' A output row might have a variable in it
                 but as we create a parser class we would implement that'''
                 print(row_input.split("out:")[1])
-            elif row_input.startswith("in:"):
+            elif row_input.find("in:") > -1:
                 input_validation = row_input.split("in:")[1].replace(" ", "").split(",")
                 Logger.Log.DebugPrint("מצפה ל " + row_input.split("in:")[1])
 
@@ -63,7 +65,7 @@ class Action:
                     user_input = input()
 
                 ''' Checking if user is being mistaken '''
-                if UserStatus.IsMistaken(user_input):
+                if UserStatus.IsMistaken(user_input) or (UserStatus.IsDenied(user_input) and index_input_arr == 0):
                     ''' If it is the first input, then the user was wrong about the action '''
                     if index_input_arr == 0:
                         return States.States.IntentRecognition
@@ -92,25 +94,27 @@ class Action:
                     user_input = input()
                     parserAnswer = Parser.Parser.CheckInput(user_input, input_validation)
 
-                UserStatus.UserMemory.convMemory[input_validation[Parser.Parser.FieldNameIndex]] = user_input
+                if len(input_validation) > Parser.Parser.InputTypeIndex:
+                    isInputSaved = True
+                    UserStatus.UserMemory.convMemory[input_validation[Parser.Parser.FieldNameIndex]] = user_input
             row_index += 1
 
-        print("אימות פרטים:\n")
-        for inputObj in inputs_arr:
-            print(inputObj[1].fieldName + ": ")
-            print(UserStatus.UserMemory.convMemory[inputObj[1].fieldName])
+        if isInputSaved:
+            print("אימות פרטים:\n")
+            for inputObj in inputs_arr:
+                if inputObj[1].fieldName in UserStatus.UserMemory.convMemory:
+                    print(inputObj[1].fieldName.replace("-", " ") + ": ")
+                    print(UserStatus.UserMemory.convMemory[inputObj[1].fieldName])
 
-        print("פרטיך נכונים?")
-        user_input = input()
+            print("פרטיך נכונים?")
+            user_input = input()
 
-        if UserStatus.IsApproved(user_input):
-            return States.States.ActionDone
-        elif UserStatus.IsDenied(user_input):
-            ''' TODO: be able to change user's details if he says something is not accurate  '''
-            return States.States.ActionDone
+            ''' TODO: change this later - it goes through all conversation again '''
+            if UserStatus.IsDenied(user_input):
+                return self.StartConversation()
 
         path = 'Entities.' + self.entityName + '.' +self.actionName+'.Run'
         runMethod = __import__("hebChatbot."+path)
-        exec("runMethod."+path+".run()")
+        exec("runMethod."+path+".run(UserStatus.UserMemory.convMemory)")
         return States.States.ActionDone
 
