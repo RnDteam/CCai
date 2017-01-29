@@ -126,7 +126,7 @@ def Start():
             else:
                 isClear = False
 
-        if UserStatus.IsMistaken(user_input) and CURRENT_STATE != States.States.EntityExtraction:
+        if (UserStatus.IsMistaken(user_input) or UserStatus.IsDenied(user_input)) and CURRENT_STATE != States.States.EntityExtraction:
             CURRENT_STATE = States.States(CURRENT_STATE.value - 1)
             isMistaken = True
 
