@@ -62,7 +62,7 @@ class Action:
                     user_input = input()
 
                 ''' Checking if user is being mistaken '''
-                if UserStatus.IsMistaken(user_input) or (UserStatus.IsDenied(user_input) and index_input_arr == 0):
+                if UserStatus.IsMistaken(user_input) or (UserStatus.IsDenied(user_input) and index_input_arr == 0 and isInputAlreadyKnown ==  False):
                     ''' If it is the first input, then the user was wrong about the action '''
                     if index_input_arr == 0:
                         return States.States.IntentRecognition
