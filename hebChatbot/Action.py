@@ -33,9 +33,11 @@ class Action:
         index_input_arr = 0
         isMistaken = False
         isInputSaved = False
+        isInputAlreadyKnown = False
 
         while row_index < len(self.conversation):
             row_input = self.conversation[row_index]
+            isInputAlreadyKnown = False
 
             if isMistaken == True:
                 isMistaken = False
@@ -54,13 +56,8 @@ class Action:
                 if input_validation[Parser.Parser.FieldNameIndex] in UserStatus.UserMemory.convMemory:
                     ''' Ask if our memory value refers to him '''
                     user_input = input("האם זה " + UserStatus.UserMemory.convMemory[input_validation[Parser.Parser.FieldNameIndex]] + "\n")
+                    isInputAlreadyKnown = True
 
-                    if UserStatus.IsApproved(user_input):
-                        user_input = UserStatus.UserMemory.convMemory[input_validation[Parser.Parser.FieldNameIndex]]
-                    elif UserStatus.IsDenied(user_input):
-                        user_input = input("אוקיי בבקשה הזן את המידע מחדש\n")
-                    else:
-                        user_input = input("אוקיי בבקשה הזן את המידע מחדש\n")
                 else:
                     user_input = input()
 
@@ -77,6 +74,14 @@ class Action:
                         row_index = prevInput[0] - 1
                         index_input_arr -= 1
                         continue
+
+                if isInputAlreadyKnown == True:
+                    if UserStatus.IsApproved(user_input):
+                        user_input = UserStatus.UserMemory.convMemory[input_validation[Parser.Parser.FieldNameIndex]]
+                    elif UserStatus.IsDenied(user_input):
+                        user_input = input("אוקיי בבקשה הזן את המידע מחדש\n")
+                    else:
+                        user_input = input("אוקיי בבקשה הזן את המידע מחדש\n")
 
                 ''' Saving input in an input dict '''
                 if len(inputs_arr) == index_input_arr:
