@@ -1,3 +1,12 @@
+    // Encoding and Decoding server's data
+    function encode_utf8(s) {
+      return unescape(encodeURIComponent(s));
+    }
+
+    function decode_utf8(s) {
+      return decodeURIComponent(escape(s));
+    }
+
 
     // First route to show
     var GLOBALSTATE = {
@@ -184,10 +193,12 @@
     last = 'ogen'
 
     websocket.onmessage = function (event) {
+        message = decode_utf8(event.data);
+
         if (last =='ccai')
-            $('p:last').append('<p>' + event.data+ '</p>');
+            $('p:last').append('<p>' + message + '</p>');
         else
-            $('div.list-chat > ul').append('<li><img src="ccai.jpg"><div class="message"><p>' + event.data + '</p></div></li>');
+            $('div.list-chat > ul').append('<li><img src="ccai.jpg"><div class="message"><p>' + message + '</p></div></li>');
         last = 'ccai'
     }
     $('.mdi-send').on('click', function() {

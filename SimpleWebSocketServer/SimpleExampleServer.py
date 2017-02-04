@@ -1,8 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 '''
 The MIT License (MIT)
 Copyright (c) 2013 Dave P.
 '''
 
+import requests
 import signal
 import sys
 import ssl
@@ -21,16 +25,33 @@ class SimpleEcho(WebSocket):
       pass
 
 clients = []
+DOMAIN = "localhost"
+PORT = 8081
+CHATBOT_URL = 'http://' + DOMAIN + ":" + str(PORT)
+
 class SimpleChat(WebSocket):
 
    def handleMessage(self):
+      print(self.data)
       for client in clients:
          if client.address[1] == self.address[1]:
-            client.sendMessage(unicode(self.data+" got it"))
-            client.sendMessage(unicode(self.data + " got it 2"))
+            print(self.data.encode('utf-8'))
+            try:
+               r = requests.post(CHATBOT_URL, json= { "message": self.data })
+               # r = requests.post(CHATBOT_URL, json= { "message": self.data.encode('utf-8') })
+               print(r.encoding)
+               client.sendMessage(r.text)
+            except Exception as e:
+               print(e)
 
    def handleConnected(self):
       print (self.address, 'connected')
+      try:
+         r = requests.get(CHATBOT_URL, params={"client_ip": self.address})
+         print(r.text)
+         self.sendMessage(r.text)
+      except Exception as e:
+         print(e)
       clients.append(self)
 
    def handleClose(self):

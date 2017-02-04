@@ -1,5 +1,5 @@
 import os
-import hebChatbot.Action as Action
+import Action
 
 class Entity:
 
@@ -20,6 +20,7 @@ class Entity:
         self.spelling = [line.rstrip('\n') for line in file]
         if len(self.spelling) > 0:
             self.entityNameHeb = self.spelling[0]
+        file.close()
 
     def AskUserForAction(self):
         actions = "רק לוודא, התכוונת ל\n"
