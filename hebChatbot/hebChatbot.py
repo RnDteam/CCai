@@ -2,6 +2,7 @@ import os
 import Entity as Entity
 import States as States
 import Logger as Logger
+from User import User
 from UserStatus import IsMistaken, IsApproved, IsDenied
 
 ENTITIES = []
@@ -42,96 +43,100 @@ def FindAction(user_message):
     ''' if there's one action - then it is Yes No question '''
     if len(user_message.user.CURRENT_ENTITY.actions) == 1:
         if IsApproved(user_message.message):
-            Logger.Log.DebugPrint("Found Action")
-            user_message.user.CURRENT_ACTION = CURRENT_ENTITY.actions[0]
-            user_message.user.CURRENT_STATE = States.States.ExecutingAction
-            return True
-        elif IsDenied(user_message.message):
-            return False
-        else:
-            return False
+            return HandleActionFound(user_message, user_message.user.CURRENT_ENTITY.actions[0])
     else:
         for word in user_message.message.split(" "):
             for action in user_message.user.CURRENT_ENTITY.actions:
                 if word in action.spelling:
-                    Logger.Log.DebugPrint("Found Action-" + word)
-                    user_message.user.CURRENT_ACTION = action
-                    user_message.user.CURRENT_STATE = States.States.ExecutingAction
-                    return True
+                    return HandleActionFound(user_message, action)
+
+    return MistakenOrDeniedInFindingAction(user_message)
+
+def MistakenOrDeniedInFindingAction(user_message):
+    if IsDenied(user_message.message) or IsMistaken(user_message.message):
+        user_message.user.CURRENT_STATE = States.States.EntityExtraction
+        return True
 
     return False
+
+def HandleActionFound(user_message, action):
+    Logger.Log.DebugPrint("Found Action")
+    user_message.user.CURRENT_ACTION = action
+    user_message.user.CURRENT_STATE = States.States.ExecutingAction
+
+    return True
 
 def Start(user_message):
     global CURRENT_STATE
     CURRENT_STATE = States.States.EntityExtraction
 
+    str_to_print = ""
     user = user_message.user
     message = user_message.message
 
-    print("היי, נבראתי על מנת לחסוך לך זמן.")
-    user.is_clear = True
-    user.is_mistaken = False
-    str_to_print = ""
-
     ''' switch case in python is quite weird. thus using if statements '''
     if user.CURRENT_STATE == States.States.EntityExtraction:
-        if user.is_mistaken == False and user.is_clear == True:
-            str_to_print = "בוא ספר לי מה אתה זומם?\n"
-        elif user.is_mistaken == True:
-            str_to_print = "הבנתי שטעית. אז במה תרצה שאטפל?\n"
-            user.is_mistaken = False
-        elif user.is_clear == False:
-            str_to_print = "תאמת לא הבנתי מה רצית, תרשום שוב\n"
-
-        '''user_input = input(str_to_print)'''
-
         Logger.Log.DebugPrint("States.EntityExtraction")
         user.is_clear = ExtractEntity(user_message)
-    elif user.CURRENT_STATE == States.States.IntentRecognition:
-        ''' This question might be a button later '''
-        if user.is_mistaken == True:
+
+        if user.is_clear == False:
+            if user.is_mistaken == False:
+                str_to_print = "בוא ספר לי מה אתה זומם?\n"
+            else:
+                str_to_print = "הבנתי שטעית. אז במה תרצה שאטפל?\n"
+                user.is_mistaken = False
+
+    if user.CURRENT_STATE == States.States.IntentRecognition:
+        Logger.Log.DebugPrint("States.IntentRecognition")
+        user.is_clear = FindAction(user_message)
+
+        if user.is_mistaken:
             str_to_print += "הבנתי שטעית.\n"
             user.is_mistaken = False
 
-        if user.is_clear == True:
+        ''' This question might be a button later '''
+        if not user.is_clear and user.CURRENT_STATE == States.States.IntentRecognition:
             str_to_print += user.CURRENT_ENTITY.AskUserForAction() + '?\n'
-            # user_input = input(user.CURRENT_ENTITY.AskUserForAction() + '?\n')
+            return str_to_print
+        elif user.CURRENT_STATE == States.States.IntentRecognition:
+            return "אז מה רצונך, אם כך?"
         else:
-            str_to_print += "לא אשקר שהבנתי, תנסה לנסח אחרת\n"
-            # user_input = input("לא אשקר שהבנתי, תנסה לנסח אחרת\n")
+            return Start(user_message)
 
-            Logger.Log.DebugPrint("States.IntentRecognition")
-        user.is_clear = FindAction(user_message)
-
-    elif user.CURRENT_STATE == States.States.ExecutingAction:
+    if user.CURRENT_STATE == States.States.ExecutingAction:
         Logger.Log.DebugPrint("Starting to " + user.CURRENT_ACTION.actionName + " " + user.CURRENT_ENTITY.entityFileName)
 
-        return user.CURRENT_ACTION.StartConversation(user, message)
-
-        ''' If goes back by one state'''
-        if user.CURRENT_STATE == States.States(user.CURRENT_STATE.value - 1):
-            user.is_clear = False
-            user.is_mistaken = True
-
-    elif user.CURRENT_STATE == States.States.ActionDone:
-        if user.is_clear == False:
-            user_input = input("לא ממש הבנתי. אתה צריך משהו נוסף?\n")
-        else:
-            user_input = input("אין בעיה דאגתי לך. יש עוד משהו שאוכל לעזור בו?\n")
-
-        if IsApproved(message):
-            CURRENT_STATE = States.States.EntityExtraction
+        answer = user.CURRENT_ACTION.StartConversation(user, message)
+        if user.CURRENT_STATE == States.States.IntentRecognition:
+            # Reset user message so you won't go another step backward
+            user_message.message = ""
+            return Start(user_message)
+        elif answer != None:
             user.is_mistaken = False
-            user.is_clear = True
-        elif IsDenied(message):
-            print("טוב אני סיימתי פה סלאמאת")
-            return
-        else:
-            user.is_clear = False
+            str_to_print += answer
+    if user.CURRENT_STATE == States.States.ActionDone:
+        if user.is_asked_yes_no_question:
+            if IsApproved(message):
+                user.resetUser()
+                return "מה בפיך הפעם?"
+            elif IsDenied(message):
+                str_to_print += "טוב אני סיימתי פה סלאמאת"
+                return str_to_print
+            else:
+                user.is_clear = False
+                message = ""
 
-    if (IsMistaken(message) or IsDenied(message)) and user.CURRENT_STATE != States.States.EntityExtraction:
-        user.CURRENT_STATE = States.States(user.CURRENT_STATE.value - 1)
-        user.is_mistaken = True
+        if user.is_clear == False:
+            str_to_print += "\nלא ממש הבנתי. אתה צריך משהו נוסף?"
+        else:
+            str_to_print += "\nאין בעיה דאגתי לך. יש עוד משהו שאוכל לעזור בו?"
+
+        user.is_asked_yes_no_question = True
+
+    # if (IsMistaken(message) and user.CURRENT_STATE != States.States.EntityExtraction)\
+    #         or (IsDenied(message) and user.CURRENT_STATE == States.States.IntentRecognition):
+    #     user.CURRENT_STATE = States.States(user.CURRENT_STATE.value - 1)
+    #     user.is_mistaken = True
 
     return str_to_print
 

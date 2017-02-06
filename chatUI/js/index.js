@@ -193,7 +193,11 @@
     last = 'ogen'
 
     websocket.onmessage = function (event) {
+
+        // Decoding and replacing \n by br
         message = decode_utf8(event.data);
+        message = message.split('\n');
+        message = message.join("<br/>");
 
         if (last =='ccai')
             $('p:last').append('<p>' + message + '</p>');
@@ -224,6 +228,7 @@
             $('.shown').removeClass('shown');
 
             $('.list-chat').addClass('shown');
+            $('.list-chat').style("height", 1000);
             setRoute('.list-chat');
             $('.chat-input').focus();
         }, 300);

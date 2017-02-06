@@ -2,29 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a1298f8-8142-4523-b7d4-bbcc4d7b95c3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hebChatbot/hebChatbot.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hebChatbot/server.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SimpleWebSocketServer/Ccai.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simple-websocket-server-master/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simple-websocket-server-master/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simple-websocket-server-master/.idea/simple-websocket-server-master.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simple-websocket-server-master/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simple-websocket-server-master/simple-websocket-server-master/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simple-websocket-server-master/simple-websocket-server-master/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simple-websocket-server-master/simple-websocket-server-master/SimpleWebSocketServer/Ccai.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simple-websocket-server-master/simple-websocket-server-master/SimpleWebSocketServer/SimpleExampleServer.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simple-websocket-server-master/simple-websocket-server-master/SimpleWebSocketServer/SimpleHTTPSServer.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simple-websocket-server-master/simple-websocket-server-master/SimpleWebSocketServer/SimpleWebSocketServer.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simple-websocket-server-master/simple-websocket-server-master/SimpleWebSocketServer/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simple-websocket-server-master/simple-websocket-server-master/SimpleWebSocketServer/websocket.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/simple-websocket-server-master/simple-websocket-server-master/setup.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/simple-websocket-server-master/simple-websocket-server-master/__init__.py" afterPath="$PROJECT_DIR$/hebChatbot/User.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MashalWeb/main1486031702860.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chatUI.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/chatUI/be4.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/simple-websocket-server-master.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/untitled/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/untitled/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/untitled/.idea/untitled.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/untitled/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/untitled/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/untitled/be4.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/untitled/ccai.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/untitled/css/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/untitled/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/untitled/less/style.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/untitled/ogen.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleWebSocketServer/SimpleExampleServer.py" afterPath="$PROJECT_DIR$/SimpleWebSocketServer/SimpleExampleServer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatUI/css/style.css" afterPath="$PROJECT_DIR$/chatUI/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatUI/index.html" afterPath="$PROJECT_DIR$/chatUI/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatUI/js/index.js" afterPath="$PROJECT_DIR$/chatUI/js/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/Action.py" afterPath="$PROJECT_DIR$/hebChatbot/Action.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/Entity.py" afterPath="$PROJECT_DIR$/hebChatbot/Entity.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/UserStatus.py" afterPath="$PROJECT_DIR$/hebChatbot/UserStatus.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/Entities/Communication/Problem/Run.py" afterPath="$PROJECT_DIR$/hebChatbot/Entities/Communication/Problem/Run.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/Entities/Mail/Pst/Run.py" afterPath="$PROJECT_DIR$/hebChatbot/Entities/Mail/Pst/Run.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Run.py" afterPath="$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Run.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/Entities/Password/Reset/Conversation.txt" afterPath="$PROJECT_DIR$/hebChatbot/Entities/Password/Reset/Conversation.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/Entities/Password/Reset/Run.py" afterPath="$PROJECT_DIR$/hebChatbot/Entities/Password/Reset/Run.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/Entities/Printer/Install/Run.py" afterPath="$PROJECT_DIR$/hebChatbot/Entities/Printer/Install/Run.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/Entities/Winzip/Install/Run.py" afterPath="$PROJECT_DIR$/hebChatbot/Entities/Winzip/Install/Run.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/Parser.py" afterPath="$PROJECT_DIR$/hebChatbot/Parser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/User.py" afterPath="$PROJECT_DIR$/hebChatbot/User.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/hebChatbot.py" afterPath="$PROJECT_DIR$/hebChatbot/hebChatbot.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hebChatbot/server.py" afterPath="$PROJECT_DIR$/hebChatbot/server.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,11 +51,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="hebChatbot.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="hebChatbot.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hebChatbot/hebChatbot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+            <state relative-caret-position="493">
+              <caret line="136" column="9" lean-forward="true" selection-start-line="136" selection-start-column="9" selection-end-line="136" selection-end-column="9" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -54,35 +63,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Action.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Action.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hebChatbot/Action.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state relative-caret-position="667">
+              <caret line="152" column="43" lean-forward="true" selection-start-line="152" selection-start-column="43" selection-end-line="152" selection-end-column="43" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1486251834851" expanded="true" signature="2774:2821" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Logger.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hebChatbot/Logger.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hebChatbot/User.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="31" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -90,40 +78,8 @@
       <file leaf-file-name="UserStatus.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hebChatbot/UserStatus.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hebChatbot/server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-              <folding>
-                <element signature="e#47#105#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/http/server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="407" column="0" lean-forward="false" selection-start-line="407" selection-start-column="0" selection-end-line="407" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="socketserver.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/socketserver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="776" column="0" lean-forward="false" selection-start-line="776" selection-start-column="0" selection-end-line="776" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -132,11 +88,53 @@
       <file leaf-file-name="SimpleExampleServer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SimpleWebSocketServer/SimpleExampleServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="48" column="10" lean-forward="true" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
+            <state relative-caret-position="306">
+              <caret line="45" column="36" lean-forward="false" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hebChatbot/server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="327">
+              <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
               <folding>
-                <element signature="e#105#120#0" expanded="true" />
+                <element signature="e#47#105#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/chatUI/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Run.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Winzip/Install/Run.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hebChatbot/User.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,33 +150,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>debugp</find>
-      <find>rows_input</find>
-      <find>arr_input</find>
-      <find>dict_inputs</find>
-      <find>index_input_dict</find>
-      <find>FindIntent</find>
-      <find>entitye</find>
-      <find>IsMistaken</find>
-      <find>input</find>
-      <find>mdi</find>
-      <find>r =</find>
-      <find>sendMessage</find>
-      <find>sendq</find>
-      <find>testHTTPServer_RequestHandler</find>
-      <find>isInputAlreadyKnown</find>
-      <find>isClear</find>
-      <find>strPrint</find>
-      <find>file</find>
-      <find>is_mistaken</find>
-      <find>is_clear</find>
       <find>user.message</find>
       <find>user_input</find>
       <find>UserStatus.</find>
       <find>iso</find>
       <find>websocket</find>
-      <find>is_input_saved</find>
       <find>isInputSaved</find>
+      <find>shown</find>
+      <find>user.</find>
+      <find>actiondo</find>
+      <find>reset</find>
+      <find>webso</find>
+      <find>לא א</find>
+      <find>AskUserForAction</find>
+      <find>FindAction</find>
+      <find>row_i</find>
+      <find>self.</find>
+      <find>inputs_arr</find>
+      <find>parser</find>
+      <find>user.is_asked_yes_no_question</find>
+      <find>is_input_already_known</find>
+      <find>intentre</find>
+      <find>האם</find>
+      <find>material</find>
+      <find>ismi</find>
+      <find>is_asked_yes_no_question</find>
+      <find>curUser</find>
+      <find>answe</find>
+      <find>is_wrong_input</find>
+      <find>is_approve_details</find>
+      <find>is_input_saved</find>
     </findStrings>
     <replaceStrings>
       <replace>arr_input</replace>
@@ -195,6 +196,9 @@
       <replace>user.is_clear</replace>
       <replace>user.message</replace>
       <replace>message</replace>
+      <replace>self.</replace>
+      <replace>user.</replace>
+      <replace>user_message</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -213,18 +217,27 @@
         <option value="$PROJECT_DIR$/hebChatbot/Entities/Parser.py" />
         <option value="$PROJECT_DIR$/hebChatbot/Logger.py" />
         <option value="$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Conversation.txt" />
-        <option value="$PROJECT_DIR$/hebChatbot/Parser.py" />
         <option value="$PROJECT_DIR$/simple-websocket-server-master/simple-websocket-server-master/SimpleWebSocketServer/SimpleExampleServer.py" />
         <option value="$PROJECT_DIR$/hebChatbot/main.py" />
         <option value="$USER_HOME$/Downloads/ex_6_21_server(1).py" />
         <option value="$PROJECT_DIR$/hebChatbot/Entity.py" />
-        <option value="$PROJECT_DIR$/SimpleWebSocketServer/SimpleExampleServer.py" />
-        <option value="$PROJECT_DIR$/chatUI/js/index.js" />
         <option value="$PROJECT_DIR$/hebChatbot/UserStatus.py" />
-        <option value="$PROJECT_DIR$/hebChatbot/hebChatbot.py" />
-        <option value="$PROJECT_DIR$/hebChatbot/server.py" />
+        <option value="$PROJECT_DIR$/chatUI/css/style.css" />
+        <option value="$PROJECT_DIR$/hebChatbot/Entities/Password/Reset/Conversation.txt" />
+        <option value="$PROJECT_DIR$/hebChatbot/Entities/Password/Reset/Run.py" />
+        <option value="$PROJECT_DIR$/chatUI/js/index.js" />
+        <option value="$PROJECT_DIR$/hebChatbot/Parser.py" />
         <option value="$PROJECT_DIR$/hebChatbot/User.py" />
+        <option value="$PROJECT_DIR$/hebChatbot/Entities/Communication/Problem/Run.py" />
+        <option value="$PROJECT_DIR$/hebChatbot/Entities/Mail/Pst/Run.py" />
+        <option value="$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Run.py" />
+        <option value="$PROJECT_DIR$/hebChatbot/Entities/Printer/Install/Run.py" />
+        <option value="$PROJECT_DIR$/chatUI/index.html" />
+        <option value="$PROJECT_DIR$/SimpleWebSocketServer/SimpleExampleServer.py" />
+        <option value="$PROJECT_DIR$/hebChatbot/server.py" />
         <option value="$PROJECT_DIR$/hebChatbot/Action.py" />
+        <option value="$PROJECT_DIR$/hebChatbot/hebChatbot.py" />
+        <option value="$PROJECT_DIR$/hebChatbot/Entities/Winzip/Install/Run.py" />
       </list>
     </option>
   </component>
@@ -249,6 +262,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -271,14 +286,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="chatUI" />
+              <option name="myItemId" value="hebChatbot" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -291,7 +304,7 @@
       <recent name="C:\Users\User2\PycharmProjects\CCai\hebChatbot" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.server">
+  <component name="RunManager" selected="Python.SimpleExampleServer (1)">
     <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -546,16 +559,16 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18143237" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18143237" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910246" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910246" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35434008" sideWeight="0.52838194" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32818073" sideWeight="0.59045094" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818073" sideWeight="0.4143236" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32818073" sideWeight="0.40954906" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35434008" sideWeight="0.47161803" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35434008" sideWeight="0.467374" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -574,13 +587,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/hebChatbot/Action.py</url>
-          <line>53</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -588,7 +594,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="32" />
+      <option name="time" value="109" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -597,110 +603,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Action.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Conversation.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Entity.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/hebChatbot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/States.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Action.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Entity.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/hebChatbot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/States.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Action.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hebChatbot/Entity.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -729,18 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Sources/Flow_Tree.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Conversation.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -753,13 +643,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Mashal/Spelling.txt" />
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Password/Spelling.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Printer/Spelling.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -789,14 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chatUI/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="829">
-          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/http/server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6672">
@@ -809,7 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
           <caret line="28" column="87" lean-forward="true" selection-start-line="28" selection-start-column="87" selection-end-line="28" selection-end-column="87" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -817,14 +691,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -843,25 +709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
           <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleWebSocketServer/SimpleExampleServer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="48" column="10" lean-forward="true" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
-          <folding>
-            <element signature="e#105#120#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chatUI/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="207" column="21" lean-forward="true" selection-start-line="207" selection-start-column="21" selection-end-line="207" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -873,65 +720,216 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Spelling.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/UserStatus/Approval/Spelling.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chatUI/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="371" column="16" lean-forward="false" selection-start-line="371" selection-start-column="16" selection-end-line="371" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sources/Flow_Tree.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chatUI/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="196" column="42" lean-forward="false" selection-start-line="196" selection-start-column="42" selection-end-line="196" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Password/Reset/Conversation.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Conversation.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydevd_bundle/pydevd_comm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="429" column="0" lean-forward="false" selection-start-line="429" selection-start-column="0" selection-end-line="429" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/queue.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="298" column="0" lean-forward="false" selection-start-line="298" selection-start-column="0" selection-end-line="298" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Password/Reset/Run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Password/Change/Run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="26" lean-forward="true" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Mail/Pst/Run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Communication/Problem/Run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Printer/Install/Run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Password/Spelling.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="4" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Password/Reset/Spelling.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/User.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/http/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="405" column="0" lean-forward="false" selection-start-line="405" selection-start-column="0" selection-end-line="405" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hebChatbot/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state relative-caret-position="327">
+          <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
           <folding>
             <element signature="e#47#105#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/http/server.py">
+    <entry file="file://$PROJECT_DIR$/SimpleWebSocketServer/SimpleExampleServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="407" column="0" lean-forward="false" selection-start-line="407" selection-start-column="0" selection-end-line="407" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="45" column="36" lean-forward="false" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hebChatbot/UserStatus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="14" />
+        <state relative-caret-position="300">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/hebChatbot.py">
+    <entry file="file://$PROJECT_DIR$/chatUI/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/User.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hebChatbot/Logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="125">
+          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hebChatbot/Action.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state relative-caret-position="667">
+          <caret line="152" column="43" lean-forward="true" selection-start-line="152" selection-start-column="43" selection-end-line="152" selection-end-column="43" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1486251834851" expanded="true" signature="2774:2821" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/Entities/Winzip/Install/Run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hebChatbot/hebChatbot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="136" column="9" lean-forward="true" selection-start-line="136" selection-start-column="9" selection-end-line="136" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

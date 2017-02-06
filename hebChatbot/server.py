@@ -19,9 +19,13 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/html')
         self.end_headers()
 
-        # Send message back to client
-        client_ip = self.path.split("client_ip=")[1]
-        client_ip = client_ip.replace("&", "")
+        # Analyze parameters
+        if self.path.find('?') > -1:
+            pathParams = self.path.split("?")[1]
+            paramDic = self.CreateParamDic(pathParams)
+
+        client_ip = self.getUrl(paramDic)
+
         if client_ip not in USERS:
             USERS[client_ip] = User.User(client_ip)
 
@@ -38,17 +42,33 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.data_string = self.rfile.read(int(self.headers['Content-Length']))
 
+        # Analyze parameters
+        if self.path.find('?') > -1:
+            pathParams = self.path.split("?")[1]
+            paramDic = self.CreateParamDic(pathParams)
+
         data = simplejson.loads(self.data_string)
         message = data['message']
         print(message)
 
-        curUser = User.UserMessage(USERS[self.address_string()], message)
+        user_message = User.UserMessage(USERS[self.getUrl(paramDic)], message)
 
-        answer = hebChatbot.Start(curUser)
+        self.wfile.write(bytes(hebChatbot.Start(user_message), "utf-8"))
 
-        self.wfile.write(bytes(hebChatbot.Start(curUser), "utf-8"))
-        # print(hebChatbot.Start(curUser))
-        print(self.address_string())
+    def getUrl(self, paramDic):
+        client_ip = paramDic["client_ip"]
+        port = paramDic["port"]
+        return client_ip + ":" + str(port)
+
+    def CreateParamDic(self, path):
+        paramsDic = {}
+
+        pathParams = path.split("&")
+        for param in pathParams:
+            val = param.split("=")
+            paramsDic[val[0]] = val[1]
+
+        return paramsDic
 
 def run():
     print("preparing chatbot...")

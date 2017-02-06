@@ -30,9 +30,8 @@ class Action:
 
         if user.row_index < len(self.conversation):
             row_input = self.conversation[user.row_index]
-            user.is_input_already_known = False
 
-            if user.is_mistaken == True:
+            if user.is_mistaken:
                 user.is_mistaken = False
                 str_to_print += "בסדר, זה אנושי לטעות."
 
@@ -41,99 +40,126 @@ class Action:
                 ''' A output row might have a variable in it
                 but as we create a parser class we would implement that'''
                 str_to_print += row_input.split("out:")[1]
-                user.row_index += 1
-                row_input = self.conversation[user.row_index]
-                while user.row_index < len(self.conversation) and row_input.find("out:") > -1:
-                    str_to_print += row_input.split("out:")[1]
 
+                while user.row_index < len(self.conversation) - 1 and row_input.find("out:") > -1:
                     user.row_index += 1
                     row_input = self.conversation[user.row_index]
 
-                return str_to_print
+                    if row_input.find("out:") > -1:
+                        str_to_print += '\n' + row_input.split("out:")[1]
+
+                if user.row_index < len(self.conversation):
+                    row_input = self.conversation[user.row_index]
+
+                    if row_input.find("in:") > -1:
+                        input_validation = row_input.split("in:")[1].replace(" ", "").split(",")
+                        ''' Checking if the input we need has already been given '''
+                        if input_validation[Parser.Parser.FieldNameIndex] in user.convMemory:
+                            ''' Ask if our memory value refers to him '''
+                            str_to_print += "\nהאם זה " + user.convMemory[input_validation[Parser.Parser.FieldNameIndex]] + "\n"
+                            user.is_input_already_known = True
+                            user.is_mistaken = False
+                    else:
+                        EndConversation(user)
+                    return str_to_print
+                else:
+                    EndConversation(user)
+
             elif row_input.find("in:") > -1:
                 input_validation = row_input.split("in:")[1].replace(" ", "").split(",")
                 Logger.Log.DebugPrint("מצפה ל " + row_input.split("in:")[1])
+                if not user.is_wrong_input:
+                    ''' Checking if user is being mistaken '''
+                    if UserStatus.IsMistaken(message):
+                        ''' If it is the first input, then the user was wrong about the action '''
+                        if user.index_input_arr == 0:
+                            user.CURRENT_STATE = States.States.IntentRecognition
+                            user.is_clear = False
+                            user.row_index = 0
+                            user.is_mistaken = True
+                            return str_to_print
+                        else:
+                            user.is_mistaken = True
 
-                ''' Checking if the input we need has already been given '''
-                if input_validation[Parser.Parser.FieldNameIndex] in user.convMemory:
-                    ''' Ask if our memory value refers to him '''
-                    user_input = input("האם זה " + UserStatus.UserMemory.convMemory[input_validation[Parser.Parser.FieldNameIndex]] + "\n")
-                    is_input_already_known = True
+                            ''' go back to last input '''
+                            prevInput = user.inputs_arr[user.index_input_arr - 1]
+                            user.row_index = prevInput[0] - 1
+                            user.index_input_arr -= 1
+                            return self.StartConversation(user, message)
+                            # return str_to_print
+                            # continue
 
-                #else:
-                #    user_input = input()
+                    if user.is_input_already_known:
+                        user.is_input_already_known = False
+                        if UserStatus.IsApproved(message):
+                            #user_input = user.convMemory[input_validation[Parser.Parser.FieldNameIndex]]
+                            message = user.convMemory[input_validation[Parser.Parser.FieldNameIndex]]
+                        elif UserStatus.IsDenied(message):
+                            str_to_print += "אוקיי בבקשה הזן את המידע מחדש\n"
+                            return str_to_print
+                        else:
+                            str_to_print = "אוקיי בבקשה הזן את המידע מחדש\n"
+                            return str_to_print
 
-                ''' Checking if user is being mistaken '''
-                if UserStatus.IsMistaken(message) or (UserStatus.IsDenied(message) and user.index_input_arr == 0 and user.is_input_already_known ==  False):
-                    ''' If it is the first input, then the user was wrong about the action '''
-                    if user.index_input_arr == 0:
-                        user.CURRENT_STATE = States.States.IntentRecognition
-                        return str_to_print
-                    else:
-                        user.is_mistaken = True
+                    ''' Saving input in an input dict '''
+                    if len(user.inputs_arr) == user.index_input_arr:
+                        user.inputs_arr.append([])
 
-                        ''' go back to last input '''
-                        prevInput = user.inputs_arr[user.index_input_arr - 1]
-                        row_index = prevInput[0] - 1
-                        user.index_input_arr -= 1
-                        return str_to_print
-                        # continue
-
-                if user.is_input_already_known == True:
-                    if UserStatus.IsApproved(user_input):
-                        #user_input = user.convMemory[input_validation[Parser.Parser.FieldNameIndex]]
-                        message = user.convMemory[input_validation[Parser.Parser.FieldNameIndex]]
-                    elif UserStatus.IsDenied(user_input):
-                        str_to_print = "אוקיי בבקשה הזן את המידע מחדש\n"
-                        return  # ?
-                    else:
-                        str_to_print = "אוקיי בבקשה הזן את המידע מחדש\n"
-                        return  # ?
-
-                ''' Saving input in an input dict '''
-                if len(user.inputs_arr) == user.index_input_arr:
-                    user.inputs_arr.append([])
-
-                user.inputs_arr[user.index_input_arr] = [user.row_index, Parser.ParserInput(input_validation)]
-                user.index_input_arr += 1
+                    user.inputs_arr[user.index_input_arr] = [user.row_index, Parser.ParserInput(input_validation)]
+                    user.index_input_arr += 1
 
                 ''' Validate input '''
                 parserAnswer = Parser.Parser.CheckInput(message, input_validation)
-
                 ''' ParserAnswer is an array that contains - Boolean and string that says what went wrong'''
-                while parserAnswer[0] == False:
-                    print(parserAnswer[1])
-                    user_input = input()
-                    parserAnswer = Parser.Parser.CheckInput(user_input, input_validation)
+                if not parserAnswer[0]:
+                    user.is_wrong_input = True
+                    str_to_print += parserAnswer[1]
+                    return str_to_print
+
+                user.is_wrong_input = False
 
                 if len(input_validation) > Parser.Parser.InputTypeIndex:
                     user.is_input_saved = True
                     user.convMemory[input_validation[Parser.Parser.FieldNameIndex]] = message
-            user.row_index += 1
-
-        if user.row_index == len(self.conversation):
-            if user.is_input_saved:
-                print("אימות פרטים:\n")
+                user.row_index += 1
+                return self.StartConversation(user, message)
+        # Got all data and now confirms it
+        else:
+            if user.is_input_saved and not user.is_approve_details:
+                str_to_print += "אימות פרטים:\n"
                 for inputObj in user.inputs_arr:
-                    if inputObj[1].fieldName in UserStatus.UserMemory.convMemory:
-                        print(inputObj[1].fieldName.replace("-", " ") + ": ")
-                        print(UserStatus.UserMemory.convMemory[inputObj[1].fieldName])
-
-                print("פרטיך נכונים?")
-                user_input = input()
-
-                ''' TODO: change this later - it goes through all conversation again '''
-                if UserStatus.IsDenied(user_input):
-                    return self.StartConversation()
-
+                    if inputObj[1].fieldName in user.convMemory:
+                        str_to_print += inputObj[1].fieldName.replace("-", " ") + ": " + "\n"
+                        str_to_print += user.convMemory[inputObj[1].fieldName] + "\n"
+                str_to_print += "פרטיך נכונים?"
                 user.is_approve_details = True
+                user.is_asked_yes_no_question = True
+                return str_to_print
+            elif user.is_input_saved and user.is_approve_details:
+                ''' TODO: change this later - it goes through all conversation again '''
+                if UserStatus.IsDenied(message) or UserStatus.IsMistaken(message):
+                    user.inputs_arr = []
+                    user.row_index = 0
+                    user.index_input_arr = 0
+                    user.is_mistaken = False
+                    user.is_input_saved = False
+                    user.is_input_already_known = False
+                    user.is_approve_details = False
+                    return self.StartConversation(user, message)
+
                 user.is_input_saved = False
-            if user.is_approve_details:
+            if user.is_approve_details or not user.is_input_saved:
                 path = 'Entities.' + self.entityName + '.' + self.actionName + '.Run'
-                runMethod = __import__("hebChatbot." + path)
-                exec("runMethod." + path + ".run(user.convMemory)")
-                user.CURRENT_STATE = States.States.ActionDone
+                str_by_ref = [str_to_print]
+                runMethod = __import__(path)
+                exec("runMethod." + self.entityName + '.' + self.actionName + '.Run' + ".run(user.convMemory, str_by_ref)")
+                str_to_print = str_by_ref[0]
+                EndConversation(user)
 
         file.close()
         return str_to_print
 
+def EndConversation(user):
+    user.CURRENT_STATE = States.States.ActionDone
+    user.is_clear = True
+    user.is_asked_yes_no_question = False

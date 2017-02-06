@@ -44,9 +44,9 @@ class Parser():
         try:
             float(user_input)
         except:
-            return (False)
+            return False
         else:
-            return (True)
+            return True
 
 class ParserInput():
     def __init__(self, args):

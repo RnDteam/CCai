@@ -32,14 +32,10 @@ CHATBOT_URL = 'http://' + DOMAIN + ":" + str(PORT)
 class SimpleChat(WebSocket):
 
    def handleMessage(self):
-      print(self.data)
       for client in clients:
          if client.address[1] == self.address[1]:
-            print(self.data.encode('utf-8'))
             try:
-               r = requests.post(CHATBOT_URL, json= { "message": self.data })
-               # r = requests.post(CHATBOT_URL, json= { "message": self.data.encode('utf-8') })
-               print(r.encoding)
+               r = requests.post(CHATBOT_URL, json= { "message": self.data }, params={"client_ip": self.address[0], "port": self.address[1]})
                client.sendMessage(r.text)
             except Exception as e:
                print(e)
@@ -47,8 +43,9 @@ class SimpleChat(WebSocket):
    def handleConnected(self):
       print (self.address, 'connected')
       try:
-         r = requests.get(CHATBOT_URL, params={"client_ip": self.address})
-         print(r.text)
+         # TODO senging port only because we're checking it in one computer
+         #      and that's how we distinguish between users. On prod only ip would be fine
+         r = requests.get(CHATBOT_URL, params={"client_ip": self.address[0], "port": self.address[1]})
          self.sendMessage(r.text)
       except Exception as e:
          print(e)

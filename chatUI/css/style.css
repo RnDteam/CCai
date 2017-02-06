@@ -369,6 +369,7 @@ canvas {
   bottom: 0px;
 }
 .list-chat.shown {
+  height: 2000px;
   animation: fade-up 0.444s 1 ease-out;
 }
 ul.chat {
