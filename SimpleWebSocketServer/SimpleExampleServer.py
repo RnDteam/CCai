@@ -26,7 +26,7 @@ class SimpleEcho(WebSocket):
 
 clients = []
 DOMAIN = "localhost"
-PORT = 8081
+PORT = 8082
 CHATBOT_URL = 'http://' + DOMAIN + ":" + str(PORT)
 
 class SimpleChat(WebSocket):

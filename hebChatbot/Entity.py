@@ -24,10 +24,10 @@ class Entity:
 
     def AskUserForAction(self):
         actions = "רק לוודא, התכוונת ל\n"
+        actions += '['
         for action in self.actions:
-            actions += action.actionNameHeb + ' ' + action.entityNameHeb + '\nאו\n'
+            actions += action.actionNameHeb + ' ' + action.entityNameHeb + '|'
+        actions = actions[:len(actions) - 1]
 
-        if len(actions) > 3:
-            actions = actions[:len(actions) - 4]
-
+        actions += ']'
         return actions

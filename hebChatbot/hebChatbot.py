@@ -44,11 +44,11 @@ def FindAction(user_message):
     if len(user_message.user.CURRENT_ENTITY.actions) == 1:
         if IsApproved(user_message.message):
             return HandleActionFound(user_message, user_message.user.CURRENT_ENTITY.actions[0])
-    else:
-        for word in user_message.message.split(" "):
-            for action in user_message.user.CURRENT_ENTITY.actions:
-                if word in action.spelling:
-                    return HandleActionFound(user_message, action)
+
+    for word in user_message.message.split(" "):
+        for action in user_message.user.CURRENT_ENTITY.actions:
+            if word in action.spelling:
+                return HandleActionFound(user_message, action)
 
     return MistakenOrDeniedInFindingAction(user_message)
 
@@ -96,11 +96,11 @@ def Start(user_message):
 
         ''' This question might be a button later '''
         if not user.is_clear and user.CURRENT_STATE == States.States.IntentRecognition:
-            str_to_print += user.CURRENT_ENTITY.AskUserForAction() + '?\n'
+            str_to_print += user.CURRENT_ENTITY.AskUserForAction()
             return str_to_print
         elif user.CURRENT_STATE == States.States.IntentRecognition:
             return "אז מה רצונך, אם כך?"
-        else:
+        elif user.CURRENT_STATE != States.States.ExecutingAction:
             return Start(user_message)
 
     if user.CURRENT_STATE == States.States.ExecutingAction:
