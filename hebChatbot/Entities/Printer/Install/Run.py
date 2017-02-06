@@ -1,16 +1,10 @@
 import webbrowser
-import socket
-from uuid import getnode as get_mac
 import os
-import subprocess
-import fileinput
 import time
 
-def run(dict):
+def run(dict, str_by_ref):
     millis = int(round(time.time() * 1000))
-    mac = get_mac()
-    ip = socket.gethostbyname(socket.gethostname())
-    host = socket.gethostname()
+    # TODO add mac ip and host name
     file = open(os.path.join(os.path.dirname(__file__).split("hebChatbot")[0], "MashalWeb/main.html"), "r+",
                 encoding='utf-8')
     newFile = open(os.path.join(os.path.dirname(__file__).split("hebChatbot")[0], "MashalWeb/main" + str(millis) +".html"), 'w',
@@ -27,4 +21,3 @@ def run(dict):
 
     webbrowser.open('file://' + os.path.join(os.path.dirname(__file__).split("hebChatbot")[0],
                                              "MashalWeb/main" + str(millis) +".html"))
-    print (mac,ip,host)

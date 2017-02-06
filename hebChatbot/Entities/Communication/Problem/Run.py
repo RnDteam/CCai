@@ -6,7 +6,7 @@ import subprocess
 import fileinput
 import time
 
-def run(dict):
+def run(dict, str_by_ref):
     millis = int(round(time.time() * 1000))
     mac = get_mac()
     ip = socket.gethostbyname(socket.gethostname())
