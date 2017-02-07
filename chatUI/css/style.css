@@ -338,6 +338,7 @@ canvas {
 .list-chat {
   display: none;
   height: 100%;
+  overflow: auto;
 }
 .list-phone.shown,
 .list-text.shown,

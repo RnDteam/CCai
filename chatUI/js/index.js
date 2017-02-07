@@ -158,6 +158,7 @@
         last = name
 
     }
+    num=0
     websocket.onmessage = function (event) {
        
        // Decoding and replacing \n by br
@@ -176,7 +177,9 @@
             var opt = str2[0].split('|')
             name = 'ccai.jpg'
             for (i = 0; i < opt.length; i++) {
-                text = '<button type="button" class="btn" value="'+opt[i]+'" onclick = "myfun(this)">'+opt[i]+'</button>'
+                id = "btn" +num
+                text = '<button type="button" class="btn" id='+id+' value="'+opt[i]+'" onclick = "myfun(this)">'+opt[i]+'</button>'
+                num+=1
                 if (last == name)
                     $('p:last').append(text);
                 else
@@ -186,15 +189,22 @@
             $('p:last').append("<p>"+str2[1]+"</p>");
         } else
             addMsg('ccai.jpg',message)
+        var objDiv = document.getElementById("list-chat");
+        objDiv.scrollTop = objDiv.scrollHeight;
+
     }
     function myfun(btn){
         addMsg('ogen.jpg',btn.value)
         websocket.send(btn.value)
+        for(i=0; i<num;i++)
+            document.getElementById("btn"+i).disabled=true;
     }
     $('.mdi-send').on('click', function() {
         addMsg('ogen.jpg',$('.chat-input').val());
         websocket.send($('.chat-input').val())
         $('.chat-input').val('');
+        var objDiv = document.getElementById("list-chat");
+        objDiv.scrollTop = objDiv.scrollHeight;
     });
 
     $('.chat-input').on('keyup', function(event) {
