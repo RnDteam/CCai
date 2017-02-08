@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 from http.server import BaseHTTPRequestHandler, HTTPServer
-import User
+from User import User, UserMessage
+import libs.mimetypes
 import hebChatbot
 import simplejson
+import codecs
 
 USERS = {}
 
@@ -16,21 +17,52 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         self.send_response(200)
 
         # Send headers
-        self.send_header('Content-type', 'text/html')
         self.end_headers()
 
-        # Analyze parameters
-        if self.path.find('?') > -1:
-            pathParams = self.path.split("?")[1]
-            paramDic = self.CreateParamDic(pathParams)
+        # In case the user load the page
+        if self.path == '/':
+            self.send_header('Content-type', 'text/html')
+            self.path = "../chatUI/index.html"
+            f = codecs.open(self.path, 'r', 'utf-8')
+            htmlFile = f.read()
+            self.wfile.write(htmlFile.encode("utf-8"))
+        else:
+            # TODO find a way for detecting a file requests in a more scalable way
+            if self.path.find("client_ip") > -1 and self.path.find('?') > -1:
+                self.send_header('Content-type', 'text/html')
 
-        client_ip = self.getUrl(paramDic)
+                pathParams = self.path.split("?")[1]
+                paramDic = self.CreateParamDic(pathParams)
 
-        if client_ip not in USERS:
-            USERS[client_ip] = User.User(client_ip)
+                client_ip = self.getUrl(paramDic)
 
-        # Write content as utf-8 data
-        self.wfile.write("שלום".encode("utf-8"))
+                if client_ip not in USERS:
+                    USERS[client_ip] = User(client_ip)
+
+                # Write content as utf-8 data
+                self.wfile.write("שלום".encode("utf-8"))
+            else:
+                try:
+                    file_type = libs.mimetypes.overwrite_mimetypes_answer(self.path)
+
+                    if file_type is None:
+                        file_type = libs.mimetypes.guess_type(self.path, strict=True)[0]
+
+                    # Check if file type was found
+                    if file_type is not None:
+                        self.send_header('Content-type', file_type)
+                        # Check if the file is an image which is already encoded
+                        if file_type.find("jpeg") > -1 or file_type.find("png") > -1:
+                            f = open("../chatUI/" + self.path, 'rb')
+                            response = f.read()
+                        else:
+                            f = codecs.open("../chatUI/" + self.path, 'r', 'utf-8')
+                            response = f.read().encode("utf-8")
+
+                        self.wfile.write(response)
+                except OSError:# Analyze parameters
+                    print(OSError)
+
         return
 
     def do_POST(self):
@@ -51,15 +83,16 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         message = data['message']
         print(message)
 
-        user_message = User.UserMessage(USERS[self.getUrl(paramDic)], message)
+        user_message = UserMessage(USERS[self.getUrl(paramDic)], message)
 
-        self.wfile.write(bytes(hebChatbot.Start(user_message), "utf-8"))
+        self.wfile.write(bytes(hebChatbot.hebChatbot.Start(user_message), "utf-8"))
 
     def getUrl(self, paramDic):
         client_ip = paramDic["client_ip"]
         port = paramDic["port"]
         return client_ip + ":" + str(port)
 
+    # TODO - prevent false abuse of post requests by sending some unexpected params
     def CreateParamDic(self, path):
         paramsDic = {}
 
@@ -78,7 +111,7 @@ def run():
 
     # Server settings
     # Choose port 8080, for port 80, which is normally used for a http server, you need root access
-    server_address = ('127.0.0.1', 8082)
+    server_address = ('localhost', 8082)
     httpd = HTTPServer(server_address, MyRequestHandler)
     print('running server...')
     httpd.serve_forever()

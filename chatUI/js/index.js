@@ -1,10 +1,12 @@
     // Encoding and Decoding server's data
     function encode_utf8(s) {
-      return unescape(encodeURIComponent(s));
+      // return unescape(encodeURIComponent(s));
+      return s;
     }
 
     function decode_utf8(s) {
-      return decodeURIComponent(escape(s));
+      // return decodeURIComponent(escape(s));
+      return s;
     }
 
     // First route to show
