@@ -594,7 +594,6 @@ my_extensions = {
 }
 
 def overwrite_mimetypes_answer(url):
-    print(url)
     for extension in my_extensions:
         if extension in url:
             return my_extensions[extension]

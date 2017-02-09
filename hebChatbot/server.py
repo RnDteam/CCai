@@ -50,6 +50,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 
                     # Check if file type was found
                     if file_type is not None:
+                        print(self.path + " , " + file_type)
                         self.send_header('Content-type', file_type)
                         # Check if the file is an image which is already encoded
                         if file_type.find("jpeg") > -1 or file_type.find("png") > -1:
@@ -86,6 +87,8 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         user_message = UserMessage(USERS[self.getUrl(paramDic)], message)
 
         self.wfile.write(bytes(hebChatbot.hebChatbot.Start(user_message), "utf-8"))
+
+        return
 
     def getUrl(self, paramDic):
         client_ip = paramDic["client_ip"]
