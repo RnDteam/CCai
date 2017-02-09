@@ -12,8 +12,11 @@ class Parser():
     def CheckInput(user_input, input_validation):
         ''' Check if all fields exist '''
         if len(input_validation) > Parser.InputLengthIndex:
-            ''' check length '''
-            if str(len(str(user_input))) == input_validation[Parser.InputLengthIndex]:
+            if input_validation[Parser.InputLengthIndex].find('-') > -1:
+                # check if input between range (Ex. 1900-2000)
+                return Parser.CheckInRange(user_input, input_validation)
+            elif str(len(str(user_input))) == input_validation[Parser.InputLengthIndex]:
+                # check length
                 return Parser.CheckType(user_input, input_validation)
             else:
                 return [False, "אורך הקלט לא הגיוני, נסה שוב"]
@@ -36,6 +39,24 @@ class Parser():
         elif input_validation[Parser.InputTypeIndex] == "טקסט":
             ''' TODO: what verification do we need for text? '''
             answer[0] = True
+
+        return answer
+
+    @staticmethod
+    def CheckInRange(user_input, input_validation):
+        answer = [False, ""]
+        try:
+            if Parser.isNumeric(user_input):
+                num_range = input_validation[Parser.InputLengthIndex].split('-')
+                answer[0] = (float(num_range[0]) - float(user_input)) * (float(num_range[1]) - float(user_input)) <= 0
+
+                if not answer[0]:
+                    answer[1] = "קשה לי להאמין. נסה שוב בבקשה."
+            else:
+                answer[0] = False
+                answer[1] = "מצטער, ציפיתי למספר."
+        except Exception:
+            print(Exception)
 
         return answer
 

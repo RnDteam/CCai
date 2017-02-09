@@ -7,6 +7,7 @@ from UserStatus import IsMistaken, IsApproved, IsDenied
 
 ENTITIES = []
 
+ResetUserChat = "אפס שיחה"
 operationDir = 'Operations'
 spellingFile = "Spelling.txt"
 conversationFile = "Conversation.txt"
@@ -83,7 +84,9 @@ def Start(user_message):
     user = user_message.user
     message = user_message.message
 
-    ''' switch case in python is quite weird. thus using if statements '''
+    if message == ResetUserChat:
+        user.resetUser()
+        message = "בוא נתחיל"
     if user.CURRENT_STATE == States.States.EntityExtraction:
         Logger.Log.DebugPrint("States.EntityExtraction")
         if message == "בוא נתחיל":

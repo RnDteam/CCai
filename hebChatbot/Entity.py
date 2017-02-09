@@ -27,7 +27,8 @@ class Entity:
         answer_actions = self.strAllActions()
         actions = ""
         if answer_actions[0] == 1:
-            actions += "אני רק מוודא, התכוונת ל" + answer_actions[1] + "?\n" + self.yes_no_str_buttons
+            bold_action = "<b>" + answer_actions[1] + "</b>"
+            actions += "אני רק מוודא, התכוונת ל" + bold_action + "?\n" + self.yes_no_str_buttons
         else:
             actions += "אני רק מוודא, התכוונת ל\n"
             actions += '[' + self.strAllActions() + ']'

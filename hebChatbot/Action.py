@@ -62,6 +62,7 @@ class Action:
                         if input_validation[Parser.Parser.FieldNameIndex] in user.convMemory:
                             ''' Ask if our memory value refers to him '''
                             str_to_print += "\nהאם זה " + user.convMemory[input_validation[Parser.Parser.FieldNameIndex]] + "\n"
+                            str_to_print += yes_no_str_buttons
                             user.is_input_already_known = True
                             user.is_mistaken = False
                     else:
@@ -155,7 +156,8 @@ class Action:
                     user.is_input_already_known = False
                     user.is_approve_details = False
                     return self.StartConversation(user, message)
-
+                elif not UserStatus.IsApproved(message):
+                    return "לצערי לא הבנתי. פרטיך נכונים?"
                 user.is_input_saved = False
             if user.is_approve_details or not user.is_input_saved:
                 str_to_print = EndConversation(user, message, [str_to_print])

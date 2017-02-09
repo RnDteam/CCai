@@ -53,11 +53,11 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         data = simplejson.loads(self.data_string)
         message = data['message']
         print(message)
-
-        user_message = User.UserMessage(USERS[self.getUrl(paramDic)], message)
-
-        self.wfile.write(bytes(hebChatbot.Start(user_message), "utf-8"))
-
+        if len(message) > 0:
+            user_message = User.UserMessage(USERS[self.getUrl(paramDic)], message)
+            self.wfile.write(bytes(hebChatbot.Start(user_message), "utf-8"))
+        else:
+            self.wfile.write(bytes('?', "utf-8"))
     def getUrl(self, paramDic):
         client_ip = paramDic["client_ip"]
         port = paramDic["port"]
