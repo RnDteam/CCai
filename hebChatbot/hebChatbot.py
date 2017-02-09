@@ -6,21 +6,24 @@ from User import User
 from UserStatus import IsMistaken, IsApproved, IsDenied
 
 ENTITIES = []
-CURRENT_STATE = None
-CURRENT_ENTITY = None
-CURRENT_ACTION = None
 
 operationDir = 'Operations'
 spellingFile = "Spelling.txt"
 conversationFile = "Conversation.txt"
 entityDir = 'Entities'
 rootDir = os.path.join(os.path.dirname(__file__), entityDir)
+str_actions = ""
+yes_no_str_buttons = "[כן|לא]"
 
-
+# TODO change name to init all
 def InitEntities():
+    global str_actions
+
     entities = os.listdir(rootDir)
     for entity in entities:
         ENTITIES.append(Entity.Entity(rootDir, entity, spellingFile, conversationFile))
+
+    str_actions = InitActionsHelper()
 
 def ExtractEntity(user_message):
     global CURRENT_STATE
@@ -52,9 +55,18 @@ def FindAction(user_message):
 
     return MistakenOrDeniedInFindingAction(user_message)
 
+def InitActionsHelper():
+    actions = "["
+    for entity in ENTITIES:
+        actions += entity.strAllActions()[1] + "|"
+    actions = actions[:len(actions) - 1]
+    actions += ']'
+    return actions
+
 def MistakenOrDeniedInFindingAction(user_message):
     if IsDenied(user_message.message) or IsMistaken(user_message.message):
         user_message.user.CURRENT_STATE = States.States.EntityExtraction
+        user_message.user.is_mistaken = True
         return True
 
     return False
@@ -67,9 +79,6 @@ def HandleActionFound(user_message, action):
     return True
 
 def Start(user_message):
-    global CURRENT_STATE
-    CURRENT_STATE = States.States.EntityExtraction
-
     str_to_print = ""
     user = user_message.user
     message = user_message.message
@@ -77,20 +86,27 @@ def Start(user_message):
     ''' switch case in python is quite weird. thus using if statements '''
     if user.CURRENT_STATE == States.States.EntityExtraction:
         Logger.Log.DebugPrint("States.EntityExtraction")
-        user.is_clear = ExtractEntity(user_message)
+        if message == "בוא נתחיל":
+            str_to_print += "אז... במה אני יכול לעזור?"
+        elif message == "תדריך אותי":
+            str_to_print += "אני די חדש בתחום. ולכן, אני יודע לעשות מספר פעלות מצומצמות.\n תראה כמה דוגמאות\n" + str_actions + "\n"
+            str_to_print += "במידה ואתה רוצה לעשות פעולה אחרת, אתה מוזמן בכל זאת לנסות.\n"
+            str_to_print += " בכל זאת אין לך סבלנות לחכות עד שאני אלמד,\n אתה יכול להתקשר ל012 ולדבר עם החברים שלי."
+        else:
+            user.is_clear = ExtractEntity(user_message)
 
-        if user.is_clear == False:
-            if user.is_mistaken == False:
-                str_to_print = "בוא ספר לי מה אתה זומם?\n"
-            else:
-                str_to_print = "הבנתי שטעית. אז במה תרצה שאטפל?\n"
-                user.is_mistaken = False
+            if user.is_clear == False:
+                if user.is_mistaken == False:
+                    str_to_print = "אני די חדש בתחום. ולכן, אני יודע לעשות מספר פעלות מצומצמות.\n תראה כמה דוגמאות\n" + str_actions
+                else:
+                    str_to_print = "אוקיי אז במה תרצה שאטפל?\n"
+                    user.is_mistaken = False
 
     if user.CURRENT_STATE == States.States.IntentRecognition:
         Logger.Log.DebugPrint("States.IntentRecognition")
         user.is_clear = FindAction(user_message)
 
-        if user.is_mistaken:
+        if user.is_mistaken and not user.is_clear:
             str_to_print += "הבנתי שטעית.\n"
             user.is_mistaken = False
 
@@ -116,20 +132,22 @@ def Start(user_message):
             str_to_print += answer
     if user.CURRENT_STATE == States.States.ActionDone:
         if user.is_asked_yes_no_question:
+            if user.is_mistaken:
+                str_to_print += "אוקיי אולי לא הבנתי אותך.\n"
             if IsApproved(message):
                 user.resetUser()
-                return "מה בפיך הפעם?"
+                return "במה אוכל עוד לעזור?"
             elif IsDenied(message):
-                str_to_print += "טוב אני סיימתי פה סלאמאת"
+                str_to_print += "טוב מקווה שעזרתי. להתראות!"
                 return str_to_print
             else:
                 user.is_clear = False
                 message = ""
 
         if user.is_clear == False:
-            str_to_print += "\nלא ממש הבנתי. אתה צריך משהו נוסף?"
+            str_to_print += "לא ממש הבנתי. אתה צריך משהו נוסף?" + yes_no_str_buttons
         else:
-            str_to_print += "\nאין בעיה דאגתי לך. יש עוד משהו שאוכל לעזור בו?"
+            str_to_print += "אוקיי, יש עוד משהו שאוכל לעזור בו?" + yes_no_str_buttons
 
         user.is_asked_yes_no_question = True
 

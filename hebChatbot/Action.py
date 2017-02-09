@@ -3,6 +3,8 @@ import Logger as Logger
 import Parser as Parser
 import UserStatus as UserStatus
 
+yes_no_str_buttons = "[כן|לא]"
+
 class Action:
     def __init__(self, rootDir, entityName, actionName, spellingFileName, conversationFileName, entityNameHeb):
         self.rootDir = rootDir
@@ -40,8 +42,9 @@ class Action:
                 ''' A output row might have a variable in it
                 but as we create a parser class we would implement that'''
                 str_to_print += row_input.split("out:")[1]
-
+                user.is_asked_yes_no_question = row_input.find(yes_no_str_buttons) > -1
                 while user.row_index < len(self.conversation) - 1 and row_input.find("out:") > -1:
+                    user.is_asked_yes_no_question = row_input.find(yes_no_str_buttons) > -1
                     user.row_index += 1
                     row_input = self.conversation[user.row_index]
 
@@ -49,6 +52,8 @@ class Action:
                         str_to_print += '\n' + row_input.split("out:")[1]
 
                 if user.row_index < len(self.conversation):
+                    ''' Check if the last question was yes-no question'''
+
                     row_input = self.conversation[user.row_index]
 
                     if row_input.find("in:") > -1:
@@ -60,12 +65,16 @@ class Action:
                             user.is_input_already_known = True
                             user.is_mistaken = False
                     else:
-                        EndConversation(user)
+                        str_to_print = EndConversation(user, message, [str_to_print])
                     return str_to_print
                 else:
-                    EndConversation(user)
+                    str_to_print = EndConversation(user, message, [str_to_print])
 
             elif row_input.find("in:") > -1:
+                if user.is_asked_yes_no_question and UserStatus.IsDenied(message):
+                    user.is_asked_yes_no_question = False
+                    str_to_print = EndConversation(user, message, [str_to_print])
+                    return str_to_print
                 input_validation = row_input.split("in:")[1].replace(" ", "").split(",")
                 Logger.Log.DebugPrint("מצפה ל " + row_input.split("in:")[1])
                 if not user.is_wrong_input:
@@ -131,7 +140,7 @@ class Action:
                     if inputObj[1].fieldName in user.convMemory:
                         str_to_print += inputObj[1].fieldName.replace("-", " ") + ": " + "\n"
                         str_to_print += user.convMemory[inputObj[1].fieldName] + "\n"
-                str_to_print += "פרטיך נכונים?"
+                str_to_print += "פרטיך נכונים?" + '\n' + yes_no_str_buttons
                 user.is_approve_details = True
                 user.is_asked_yes_no_question = True
                 return str_to_print
@@ -149,17 +158,22 @@ class Action:
 
                 user.is_input_saved = False
             if user.is_approve_details or not user.is_input_saved:
-                path = 'Entities.' + self.entityName + '.' + self.actionName + '.Run'
-                str_by_ref = [str_to_print]
-                runMethod = __import__(path)
-                exec("runMethod." + self.entityName + '.' + self.actionName + '.Run' + ".run(user.convMemory, str_by_ref)")
-                str_to_print = str_by_ref[0]
-                EndConversation(user)
+                str_to_print = EndConversation(user, message, [str_to_print])
 
         file.close()
         return str_to_print
 
-def EndConversation(user):
+def EndConversation(user, message, str_by_ref):
+    if not UserStatus.IsDenied(message):
+        str_by_ref[0] = ActionMethod(user, str_by_ref)
     user.CURRENT_STATE = States.States.ActionDone
     user.is_clear = True
     user.is_asked_yes_no_question = False
+
+    return str_by_ref[0]
+
+def ActionMethod(user, str_by_ref):
+    path = 'Entities.' + user.CURRENT_ACTION.entityName + '.' + user.CURRENT_ACTION.actionName + '.Run'
+    runMethod = __import__(path)
+    exec("runMethod." + user.CURRENT_ACTION.entityName + '.' + user.CURRENT_ACTION.actionName + '.Run' + ".run(user.convMemory, str_by_ref)")
+    return str_by_ref[0]

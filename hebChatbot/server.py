@@ -30,7 +30,10 @@ class MyRequestHandler(BaseHTTPRequestHandler):
             USERS[client_ip] = User.User(client_ip)
 
         # Write content as utf-8 data
-        self.wfile.write("שלום".encode("utf-8"))
+        str_first_buttons = '[בוא נתחיל|תדריך אותי]'
+        self.wfile.write("נעים להכיר, אני combot שיודע לעזור לך לפתור תקלות בצורה פשוטה וכייפית.\nאני חדש כאן ולא יודע לענות על כל דבר, אבל מיום ליום אני הולך ומשתדרג!\nאני רואה שגם אתה חדש כאן! תרצה הדרכה קצרה על איך משתמשים בי?\n".encode("utf-8"))
+        self.wfile.write(str_first_buttons.encode("utf-8"))
+        #self.wfile.write("תוכל לפנות אליי במלל חופשי ואנסה להבין כיצד לסייע לך :)".encode("utf-8"))
         return
 
     def do_POST(self):
