@@ -2,6 +2,7 @@ import os
 import Action
 
 class Entity:
+    yes_no_str_buttons = "[כן|לא]"
 
     def __init__(self, rootDir, entityFileName, spellingFileName, conversationFileName):
         self.entityFileName = entityFileName
@@ -23,11 +24,26 @@ class Entity:
         file.close()
 
     def AskUserForAction(self):
-        actions = "רק לוודא, התכוונת ל\n"
-        actions += '['
-        for action in self.actions:
-            actions += action.actionNameHeb + ' ' + action.entityNameHeb + '|'
-        actions = actions[:len(actions) - 1]
+        answer_actions = self.strAllActions()
+        actions = ""
+        if answer_actions[0] == 1:
+            bold_action = "<b>" + answer_actions[1] + "</b>"
+            actions += "אני רק מוודא, התכוונת ל" + bold_action + "?\n" + self.yes_no_str_buttons
+        else:
+            actions += "אני רק מוודא, התכוונת ל\n"
+            actions += '[' + self.strAllActions() + ']'
 
-        actions += ']'
         return actions
+
+    def strAllActions(self):
+        actions = ""
+
+        if len(self.actions) == 1:
+            action = self.actions[0]
+            return [1, action.actionNameHeb + ' ' + action.entityNameHeb]
+        else:
+            for action in self.actions:
+                actions += action.actionNameHeb + ' ' + action.entityNameHeb + '|'
+            actions = actions[:len(actions) - 1]
+
+        return [len(self.actions), actions]

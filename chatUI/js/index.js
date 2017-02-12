@@ -198,13 +198,17 @@
         websocket.send(btn.value)
         for(i=0; i<num;i++)
             document.getElementById("btn"+i).disabled=true;
-    }
-    $('.mdi-send').on('click', function() {
-        addMsg('ogen.jpg',$('.chat-input').val());
-        websocket.send($('.chat-input').val())
-        $('.chat-input').val('');
         var objDiv = document.getElementById("list-chat");
         objDiv.scrollTop = objDiv.scrollHeight;
+    }
+    $('.mdi-send').on('click', function() {
+        if($('.chat-input').val().length > 0) {
+            addMsg('ogen.jpg',$('.chat-input').val());
+            websocket.send($('.chat-input').val())
+            $('.chat-input').val('');
+            var objDiv = document.getElementById("list-chat");
+            objDiv.scrollTop = objDiv.scrollHeight;
+        }
     });
 
     $('.chat-input').on('keyup', function(event) {
