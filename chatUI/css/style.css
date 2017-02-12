@@ -213,22 +213,8 @@ canvas {
   width: 100%;
   display: flex;
   height: 55px;
-  padding: 17px 0 0 25px;
   z-index: 90;
   transition: all 0.333s ease-in-out;
-}
-#head .mdi-chevron-down,
-#head .mdi-chevron-up {
-  margin: 0 15px 0 auto;
-  font-size: 1.5em;
-  cursor: pointer;
-}
-#head .mdi-menu,
-#head .mdi-arrow-left {
-  font-size: 1.5em;
-  color: white;
-  margin-right: 12px;
-  cursor: pointer;
 }
 #head .mdi-fullscreen,
 #head .mdi-fullscreen-exit {
@@ -236,13 +222,24 @@ canvas {
   color: white;
   margin-right: 5px;
   cursor: pointer;
+  padding: 17px 0 0 25px;
 }
 #head h1 {
   margin-top: 1px;
   font-size: 1em;
   color: white;
   font-weight: normal;
+  width: 87%;
+  padding: 17px 0 0 10px;
 }
+#head .ofek {
+    position: relative;
+    top: 5%;
+    bottom: 5%;
+    left: 0;
+    right: 5%;
+    margin: auto;
+    }
 #content {
   height: 85%;
   overflow-y: auto;
@@ -393,7 +390,8 @@ ul.chat li img {
 }
 ul.chat li .message {
   padding: 10px 10px 10px 20px;
-  font-size: 0.9em;
+  font-size: 1em;
+  font-family:Arial;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   min-width: 50%;
   position: relative;
@@ -513,46 +511,55 @@ ul.list li .mdi-menu-down {
 }
 
 .style-bg{
-    background-color:#80b5ea;
+    background-color:#3e538e;
 }
 
 .btn {
-	-moz-box-shadow:inset 0px 1px 0px 0px #dcecfb;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #dcecfb;
-	box-shadow:inset 0px 1px 0px 0px #dcecfb;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bddbfa), color-stop(1, #80b5ea));
-	background:-moz-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
-	background:-webkit-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
-	background:-o-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
-	background:-ms-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
-	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bddbfa', endColorstr='#80b5ea',GradientType=0);
-	background-color:#bddbfa;
+	-moz-box-shadow:inset 0px 1px 0px 0px #354675;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #354675;
+	box-shadow:inset 0px 1px 0px 0px #354675;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #536db5), color-stop(1, #2c395c));
+	background:-moz-linear-gradient(top, #536db5 5%, #2c395c 100%);
+	background:-webkit-linear-gradient(top, #536db5 5%, #2c395c 100%);
+	background:-o-linear-gradient(top, #536db5 5%, #2c395c 100%);
+	background:-ms-linear-gradient(top, #536db5 5%, #2c395c 100%);
+	background:linear-gradient(to bottom, #536db5 5%, #2c395c 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#536db5', endColorstr='#2c395c',GradientType=0);
+	background-color:#536db5;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
 	border-radius:6px;
-	border:1px solid #84bbf3;
+	border:1px solid #3e538e;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:15px;
+	font-size:13px;
 	font-weight:bold;
-	padding:6px 24px;
+	padding:3px 7px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #528ecc;
+	text-shadow:0px 1px 0px #21364a;
 
     margin-top: 0.3em;
     margin-bottom: 0.3em;
     margin-left: 0.3em;
     margin-right: 0.3em;
 }
-.btn
+.btn:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2c395c), color-stop(1, #536db5));
+	background:-moz-linear-gradient(top, #2c395c 5%, #536db5 100%);
+	background:-webkit-linear-gradient(top, #2c395c 5%, #536db5 100%);
+	background:-o-linear-gradient(top, #2c395c 5%, #536db5 100%);
+	background:-ms-linear-gradient(top, #2c395c 5%, #536db5 100%);
+	background:linear-gradient(to bottom, #2c395c 5%, #536db5 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2c395c', endColorstr='#536db5',GradientType=0);
+	background-color:#2c395c;
 }
 .btn:active {
 	position:relative;
 	top:1px;
 }
+
 .mdi-send {
   color: #666666;
   font-size: 1.2em;
@@ -561,7 +568,7 @@ ul.list li .mdi-menu-down {
 }
 input.nostyle {
   border: 0;
-  width: 71%;
+  width: 80%;
   padding: 12px 10px 12px 0;
   background: transparent;
 }

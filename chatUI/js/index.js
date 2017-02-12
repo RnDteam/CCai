@@ -74,7 +74,7 @@
 
     // Helpers
     function setName(name) {
-        $.trim(name) === '' || $.trim(name) === null ? name = 'Ogen' : name = name;
+        $.trim(name) === '' || $.trim(name) === null ? name = 'Tsvika' : name = name;
         $('h1').text(name);
         localStorage.setItem('username', name);
         $('#username').val(name).addClass('used');
@@ -158,9 +158,30 @@
         last = name
 
     }
+    function typing(){
+       var dots = 0;
+       $('div.list-chat > ul').append('<li><img src="ccai.jpg"><div class="message"><p>מקליד</p></div></li>');
+        myvar = setInterval (type, 300);
+        function type()
+        {
+            if(dots < 3)
+            {
+                $('p:last').append('.');
+                dots++;
+            }else {
+                $('p:last').html('typing');
+                dots = 0;
+            }
+        }
+    }
     num=0
+    first = true
     websocket.onmessage = function (event) {
-       
+       /* if (!first){
+        clearInterval(myVar);
+        $('p:last').html('');
+        }
+        first = false*/
        // Decoding and replacing \n by br
         message = decode_utf8(event.data);
         message = message.split('\n');
@@ -194,7 +215,7 @@
 
     }
     function myfun(btn){
-        addMsg('ogen.jpg',btn.value)
+        addMsg('tsvika.jpg',btn.value)
         websocket.send(btn.value)
         for(i=0; i<num;i++)
             document.getElementById("btn"+i).disabled=true;
@@ -203,12 +224,13 @@
     }
     $('.mdi-send').on('click', function() {
         if($('.chat-input').val().length > 0) {
-            addMsg('ogen.jpg',$('.chat-input').val());
+            addMsg('tsvika.jpg',$('.chat-input').val());
             websocket.send($('.chat-input').val())
             $('.chat-input').val('');
             var objDiv = document.getElementById("list-chat");
             objDiv.scrollTop = objDiv.scrollHeight;
         }
+        //typing();
     });
 
     $('.chat-input').on('keyup', function(event) {
@@ -216,6 +238,7 @@
         if (event.which === 13) {
             $('.mdi-send').trigger('click');
         }
+
 
     });
 
