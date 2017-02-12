@@ -16,8 +16,10 @@ def CheckIfWordInFile(user_input, filePath):
     file = open(filePath, encoding='utf-8')
     spelling = [line.rstrip('\n') for line in file]
 
-    for word in user_input.split(" "):
-        if word in spelling:
-            return True
+    # TODO find better way to detect sentiment
+    if not len(user_input.split(" ")) > 2:
+        for word in user_input.split(" "):
+            if word in spelling:
+                return True
 
     return False

@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import os
 import Entity as Entity
 import States as States
@@ -7,7 +10,7 @@ from UserStatus import IsMistaken, IsApproved, IsDenied
 
 ENTITIES = []
 
-ResetUserChat = "אפס שיחה"
+ResetUserChat = "פניה חדשה"
 operationDir = 'Operations'
 spellingFile = "Spelling.txt"
 conversationFile = "Conversation.txt"
