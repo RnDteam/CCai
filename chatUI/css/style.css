@@ -218,28 +218,23 @@ canvas {
 }
 #head .mdi-fullscreen,
 #head .mdi-fullscreen-exit {
-  font-size: 1.5em;
-  color: white;
-  margin-right: 5px;
-  cursor: pointer;
-  padding: 17px 0 0 25px;
+    font-size: 1.5em;
+    color: white;
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+    padding: 17px 10px 0 25px;
 }
 #head h1 {
-  margin-top: 1px;
-  font-size: 1em;
-  color: white;
-  font-weight: normal;
-  width: 87%;
-  padding: 17px 0 0 10px;
+    margin-top: 1px;
+    font-size: 1.2em;
+    font-family: Arial;
+    color: white;
+    font-weight: normal;
+    position: absolute;
+    right: 50px;
+    padding: 17px 0 0 25px;
 }
-#head .ofek {
-    position: relative;
-    top: 5%;
-    bottom: 5%;
-    left: 0;
-    right: 5%;
-    margin: auto;
-    }
 #content {
   height: 85%;
   overflow-y: auto;
@@ -513,7 +508,11 @@ ul.list li .mdi-menu-down {
 .style-bg{
     background-color:#3e538e;
 }
-
+.sendbtns{
+    position:absolute;
+    left:5px;
+    top:15%
+}
 .btn {
 	-moz-box-shadow:inset 0px 1px 0px 0px #354675;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #354675;
@@ -564,13 +563,21 @@ ul.list li .mdi-menu-down {
   color: #666666;
   font-size: 1.2em;
   cursor: pointer;
+  position: absolute;
+  left:150px;
+  top:15%;
   -webkit-transform: rotate(180deg);
 }
 input.nostyle {
-  border: 0;
-  width: 80%;
-  padding: 12px 10px 12px 0;
-  background: transparent;
+    border: 0;
+    padding: 12px 10px 12px 0;
+    background: transparent;
+    position: absolute;
+    left: 180px;
+    direction:rtl;
+    width: calc(100% - 180px);
+}
+
 }
 .i-group {
   position: relative;

@@ -59,8 +59,6 @@
         }, 530)
     });
 
-    // Set Name
-    setName(localStorage.getItem('username'));
 
     // Dyncolor ftw
     if (localStorage.getItem('color') !== null) {
@@ -72,14 +70,6 @@
         stylechange(colorarray);
     }
 
-    // Helpers
-    function setName(name) {
-        $.trim(name) === '' || $.trim(name) === null ? name = 'Tsvika' : name = name;
-        $('h1').text(name);
-        localStorage.setItem('username', name);
-        $('#username').val(name).addClass('used');
-        $('.card.menu > .header > h3').text(name);
-    }
 
     // Stylechanger
     function stylechange(arr) {
@@ -174,16 +164,9 @@
             }
         }
     }
-    num=0
-    first = true
-    websocket.onmessage = function (event) {
-       /* if (!first){
-        clearInterval(myVar);
-        $('p:last').html('');
-        }
-        first = false*/
+    function msgEvt(msg) {
        // Decoding and replacing \n by br
-        message = decode_utf8(event.data);
+        message = decode_utf8(msg);
         message = message.split('\n');
         message = message.join("<br/>");
 
@@ -212,8 +195,46 @@
             addMsg('ccai.jpg',message)
         var objDiv = document.getElementById("list-chat");
         objDiv.scrollTop = objDiv.scrollHeight;
-
     }
+
+    function typingAnimation(msg,time){
+        var dots = 0;
+        var t0 = performance.now();
+        addMsg('ccai.jpg','מקליד');
+        myvar = setInterval (type, 600);
+        function type()
+        {
+            if(dots < 3)
+            {
+                $('p:last').append('.');
+                dots++;
+            }
+            else
+            {
+                $('p:last').html('מקליד');
+                dots = 0;
+            }
+          if (performance.now()-t0>time){
+            clearTimeout(myvar);
+            typing = false
+            $('p:last').html('');
+            last = 'ccai.jpg';
+            msgEvt(msg)
+           }
+        }
+    }
+    num=0
+    websocket.onmessage = function (event) {
+        var typing = false;
+        if ((event.data).indexOf('.') == 0){
+            typing = true;
+            typingAnimation(event.data,3000);
+        }
+        first = false
+        if (typing != true)
+            msgEvt(event.data)
+    }
+
     function myfun(btn){
         addMsg('tsvika.jpg',btn.value)
         websocket.send(btn.value)
@@ -230,7 +251,6 @@
             var objDiv = document.getElementById("list-chat");
             objDiv.scrollTop = objDiv.scrollHeight;
         }
-        //typing();
     });
 
     $('.chat-input').on('keyup', function(event) {
