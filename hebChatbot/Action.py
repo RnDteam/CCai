@@ -4,6 +4,7 @@ import Parser as Parser
 import UserStatus as UserStatus
 
 yes_no_str_buttons = "[כן|לא]"
+check_string = "חזרה"
 
 class Action:
     def __init__(self, rootDir, entityName, actionName, spellingFileName, conversationFileName, entityNameHeb):
@@ -13,21 +14,31 @@ class Action:
         self.entityNameHeb = entityNameHeb
         self.spellingFileName = spellingFileName
         self.conversationFileName = conversationFileName
-
+        self.check_line_index = 0
         self.spelling = []
         self.conversation = []
-        self.InitSpellingBank()
+        
+        self.init_spelling_bank()
+        self.init_conversation()
+        self.find_check_line()
 
-    def InitSpellingBank(self):
+    def init_spelling_bank(self):
         file = open(self.rootDir + '/' + self.entityName + '/' + self.actionName + '/' + self.spellingFileName, encoding='utf-8')
         self.spelling = [line.rstrip('\n') for line in file]
         self.actionNameHeb = self.spelling[0]
 
-    def StartConversation(self, user, message):
+    def init_conversation(self):
         file = open(self.rootDir + '/' + self.entityName + '/' + self.actionName + '/' + self.conversationFileName,
                     encoding='utf-8')
         self.conversation = [line.rstrip('\n') for line in file]
 
+    def find_check_line(self):
+        for line_index in range(len(self.conversation)):
+            if self.conversation[line_index].find(check_string) > -1:
+                self.check_line_index = line_index
+                return
+
+    def StartConversation(self, user, message):
         str_to_print = ""
 
         if user.row_index < len(self.conversation):
@@ -43,19 +54,20 @@ class Action:
                 but as we create a parser class we would implement that'''
                 str_to_print += row_input.split("out:")[1]
                 user.is_asked_yes_no_question = row_input.find(yes_no_str_buttons) > -1
+
                 while user.row_index < len(self.conversation) - 1 and row_input.find("out:") > -1:
                     user.is_asked_yes_no_question = row_input.find(yes_no_str_buttons) > -1
                     user.row_index += 1
                     row_input = self.conversation[user.row_index]
 
+                    if row_input.find(check_string) > -1:
+                        user.row_index += 1
+                        row_input = self.conversation[user.row_index]
+
                     if row_input.find("out:") > -1:
                         str_to_print += '\n' + row_input.split("out:")[1]
 
                 if user.row_index < len(self.conversation):
-                    ''' Check if the last question was yes-no question'''
-
-                    row_input = self.conversation[user.row_index]
-
                     if row_input.find("in:") > -1:
                         input_validation = row_input.split("in:")[1].replace(" ", "").split(",")
                         ''' Checking if the input we need has already been given '''
@@ -151,7 +163,7 @@ class Action:
                     ''' TODO: change this later - it goes through all conversation again '''
                     if UserStatus.IsDenied(message) or UserStatus.IsMistaken(message):
                         user.inputs_arr = []
-                        user.row_index = 0
+                        user.row_index = self.check_line_index + 1
                         user.index_input_arr = 0
                         user.is_mistaken = False
                         user.is_input_saved = False
@@ -163,9 +175,11 @@ class Action:
                     user.is_input_saved = False
                 if user.is_approve_details or not user.is_input_saved:
                     str_to_print = EndConversation(user, message, [str_to_print])
+            elif row_input.find(check_string) > -1:
+                user.row_index += 1
         else:
             str_to_print = EndConversation(user, message, [str_to_print])
-        file.close()
+
         return str_to_print
 
     def intent_name_heb(self):
