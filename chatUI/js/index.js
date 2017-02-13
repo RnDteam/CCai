@@ -59,8 +59,6 @@
         }, 530)
     });
 
-    // Set Name
-    setName(localStorage.getItem('username'));
 
     // Dyncolor ftw
     if (localStorage.getItem('color') !== null) {
@@ -72,14 +70,6 @@
         stylechange(colorarray);
     }
 
-    // Helpers
-    function setName(name) {
-        $.trim(name) === '' || $.trim(name) === null ? name = 'Ogen' : name = name;
-        $('h1').text(name);
-        localStorage.setItem('username', name);
-        $('#username').val(name).addClass('used');
-        $('.card.menu > .header > h3').text(name);
-    }
 
     // Stylechanger
     function stylechange(arr) {
@@ -158,11 +148,9 @@
         last = name
 
     }
-    num=0
-    websocket.onmessage = function (event) {
-       
+
+    function msgEvt(message) {
        // Decoding and replacing \n by br
-        message = decode_utf8(event.data);
         message = message.split('\n');
         message = message.join("<br/>");
 
@@ -178,7 +166,7 @@
             name = 'ccai.jpg'
             for (i = 0; i < opt.length; i++) {
                 id = "btn" +num
-                text = '<button type="button" class="btn" id='+id+' value="'+opt[i]+'" onclick = "myfun(this)">'+opt[i]+'</button>'
+                text = '<button type="button" class="btn" id='+id+' value="'+opt[i]+'" onclick = "clickBtn(this)">'+opt[i]+'</button>'
                 num+=1
                 if (last == name)
                     $('p:last').append(text);
@@ -189,25 +177,69 @@
             $('p:last').append("<p>"+str2[1]+"</p>");
         } else
             addMsg('ccai.jpg',message)
-        var objDiv = document.getElementById("list-chat");
-        objDiv.scrollTop = objDiv.scrollHeight;
 
+        scrollDown()
     }
-    function myfun(btn){
-        addMsg('ogen.jpg',btn.value)
+
+    function typingAnimation(time,typeText,msg){
+        var dots = 0;
+        var t0 = performance.now();
+        addMsg('ccai.jpg',typeText);
+        myvar = setInterval (type, 600);
+        function type()
+        {
+            if(dots < 3)
+            {
+                $('p:last').append('.');
+                dots++;
+            }
+            else
+            {
+                $('p:last').html(typeText);
+                dots = 0;
+            }
+          if (performance.now()-t0>time){
+            clearTimeout(myvar);
+            $('p:last').html('');
+            msgEvt(msg)
+           }
+            scrollDown()
+        }
+    }
+    num=0
+    websocket.onmessage = function (event) {
+        message = decode_utf8(event.data);
+        if ((event.data).indexOf('{') == 0){
+            var str = (message).split('{');
+            var str2 = (str[1]).split('|');
+            var str3 = str2[1].split('}')
+            var str4 = (message).split('}')
+            time = str2[0]
+            typeText = str3[0]
+            msg = str4[1]
+            typingAnimation(time,typeText,msg);
+        }else
+            msgEvt(message)
+    }
+
+    function clickBtn(btn){
+        addMsg('tsvika.jpg',btn.value)
         websocket.send(btn.value)
         for(i=0; i<num;i++)
             document.getElementById("btn"+i).disabled=true;
+        scrollDown()
+    }
+    function scrollDown(){
         var objDiv = document.getElementById("list-chat");
         objDiv.scrollTop = objDiv.scrollHeight;
     }
+
     $('.mdi-send').on('click', function() {
         if($('.chat-input').val().length > 0) {
-            addMsg('ogen.jpg',$('.chat-input').val());
+            addMsg('tsvika.jpg',$('.chat-input').val());
             websocket.send($('.chat-input').val())
             $('.chat-input').val('');
-            var objDiv = document.getElementById("list-chat");
-            objDiv.scrollTop = objDiv.scrollHeight;
+            scrollDown()
         }
     });
 
@@ -216,6 +248,7 @@
         if (event.which === 13) {
             $('.mdi-send').trigger('click');
         }
+
 
     });
 
