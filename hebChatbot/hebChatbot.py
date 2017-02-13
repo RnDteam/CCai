@@ -138,6 +138,8 @@ def Start(user_message):
             user.is_mistaken = False
             str_to_print += answer
     if user.CURRENT_STATE == States.States.ActionDone:
+        if message == "ביי":
+            return "ביי"
         if user.is_asked_yes_no_question:
             if user.is_mistaken:
                 str_to_print += "אוקיי אולי לא הבנתי אותך.\n"
