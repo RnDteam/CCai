@@ -16,7 +16,9 @@
 <body>
 <div id="hangout">
   <div id="head" class="style-bg">
-    <img src="ofek.png" style="padding:5px 5px 5px 5px;"><h1>ששי</h1><i class="mdi mdi-fullscreen-exit"></i>
+      <img src="ofek.png" style="padding:5px 5px 5px 5px;">
+      <h1>ששי</h1>
+      <i class="mdi mdi-fullscreen-exit"></i>
 </div>
   <div id="content">
     <div class="overlay"></div>
@@ -29,15 +31,16 @@
       <div class="meta-bar chat" dir="rtl">
         <input  class="nostyle chat-input" type="text" placeholder="הקלד כאן..." autofocus/>
 
-        <div class="sendbtns"><i class="mdi mdi-send"></i>
-        <button type="button" class="btn" id="Mistake" value="טעיתי" onclick="myfun(this)">טעיתי</button>
-        <button type="button" class="btn" id="ResetChat" value="פניה חדשה" onclick="myfun(this)">פניה חדשה</button>
-        <i class="mdi mdi-send" style="padding-bottom: 3px;"></i></div>
+        <div class="sendbtns">
+            <i class="mdi mdi-send" style="padding-bottom: 3px;"> </i>
+        <button type="button" class="btn" id="Mistake" value="טעיתי" onclick="clickBtn(this)">טעיתי</button>
+        <button type="button" class="btn" id="ResetChat" value="פניה חדשה" onclick="clickBtn(this)">פניה חדשה</button>
+       </div>
 
 
 </div>
   </div>
-</div>
+  </div></div>
   <script src='js/jquery.min.js'></script>
 
     <script src="js/index.js"></script>

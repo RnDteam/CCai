@@ -552,7 +552,7 @@ ul.list li .mdi-menu-down {
   cursor: pointer;
   position: absolute;
   left:155px;
-  top:18%;
+  top:15%;
   -webkit-transform: rotate(180deg);
 }
 input.nostyle {

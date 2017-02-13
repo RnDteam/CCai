@@ -148,25 +148,9 @@
         last = name
 
     }
-    function typing(){
-       var dots = 0;
-       $('div.list-chat > ul').append('<li><img src="ccai.jpg"><div class="message"><p>מקליד</p></div></li>');
-        myvar = setInterval (type, 300);
-        function type()
-        {
-            if(dots < 3)
-            {
-                $('p:last').append('.');
-                dots++;
-            }else {
-                $('p:last').html('typing');
-                dots = 0;
-            }
-        }
-    }
-    function msgEvt(msg) {
+
+    function msgEvt(message) {
        // Decoding and replacing \n by br
-        message = decode_utf8(msg);
         message = message.split('\n');
         message = message.join("<br/>");
 
@@ -182,7 +166,7 @@
             name = 'ccai.jpg'
             for (i = 0; i < opt.length; i++) {
                 id = "btn" +num
-                text = '<button type="button" class="btn" id='+id+' value="'+opt[i]+'" onclick = "myfun(this)">'+opt[i]+'</button>'
+                text = '<button type="button" class="btn" id='+id+' value="'+opt[i]+'" onclick = "clickBtn(this)">'+opt[i]+'</button>'
                 num+=1
                 if (last == name)
                     $('p:last').append(text);
@@ -193,14 +177,14 @@
             $('p:last').append("<p>"+str2[1]+"</p>");
         } else
             addMsg('ccai.jpg',message)
-        var objDiv = document.getElementById("list-chat");
-        objDiv.scrollTop = objDiv.scrollHeight;
+
+        scrollDown()
     }
 
-    function typingAnimation(msg,time){
+    function typingAnimation(time,typeText,msg){
         var dots = 0;
         var t0 = performance.now();
-        addMsg('ccai.jpg','מקליד');
+        addMsg('ccai.jpg',typeText);
         myvar = setInterval (type, 600);
         function type()
         {
@@ -211,45 +195,51 @@
             }
             else
             {
-                $('p:last').html('מקליד');
+                $('p:last').html(typeText);
                 dots = 0;
             }
           if (performance.now()-t0>time){
             clearTimeout(myvar);
-            typing = false
             $('p:last').html('');
-            last = 'ccai.jpg';
             msgEvt(msg)
            }
+            scrollDown()
         }
     }
     num=0
     websocket.onmessage = function (event) {
-        var typing = false;
-        if ((event.data).indexOf('.') == 0){
-            typing = true;
-            typingAnimation(event.data,3000);
-        }
-        first = false
-        if (typing != true)
-            msgEvt(event.data)
+        message = decode_utf8(event.data);
+        if ((event.data).indexOf('{') == 0){
+            var str = (message).split('{');
+            var str2 = (str[1]).split('|');
+            var str3 = str2[1].split('}')
+            var str4 = (message).split('}')
+            time = str2[0]
+            typeText = str3[0]
+            msg = str4[1]
+            typingAnimation(time,typeText,msg);
+        }else
+            msgEvt(message)
     }
 
-    function myfun(btn){
+    function clickBtn(btn){
         addMsg('tsvika.jpg',btn.value)
         websocket.send(btn.value)
         for(i=0; i<num;i++)
             document.getElementById("btn"+i).disabled=true;
+        scrollDown()
+    }
+    function scrollDown(){
         var objDiv = document.getElementById("list-chat");
         objDiv.scrollTop = objDiv.scrollHeight;
     }
+
     $('.mdi-send').on('click', function() {
         if($('.chat-input').val().length > 0) {
             addMsg('tsvika.jpg',$('.chat-input').val());
             websocket.send($('.chat-input').val())
             $('.chat-input').val('');
-            var objDiv = document.getElementById("list-chat");
-            objDiv.scrollTop = objDiv.scrollHeight;
+            scrollDown()
         }
     });
 
