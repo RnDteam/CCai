@@ -72,12 +72,19 @@ class Action:
                     str_to_print = EndConversation(user, message, [str_to_print])
 
             elif row_input.find("in:") > -1:
-                if user.is_asked_yes_no_question and UserStatus.IsDenied(message):
+                input_validation = row_input.split("in:")[1].replace(" ", "").split(",")
+                Logger.Log.DebugPrint("מצפה ל " + row_input.split("in:")[1])
+
+                # This part handles if the user is denying to continue with the action
+                if user.is_asked_yes_no_question and not user.is_input_already_known and UserStatus.IsDenied(message):
                     user.is_asked_yes_no_question = False
                     str_to_print = EndConversation(user, message, [str_to_print])
                     return str_to_print
-                input_validation = row_input.split("in:")[1].replace(" ", "").split(",")
-                Logger.Log.DebugPrint("מצפה ל " + row_input.split("in:")[1])
+                elif user.is_asked_yes_no_question and not user.is_input_already_known and not UserStatus.IsApproved(message):
+                    user.row_index -= 1
+                    return self.StartConversation(user, message)
+                    # return "לא הצלחתי להבין אותך.\n האם ברצונך שאמשיך עם תהליך" + self.intent_name_heb() + "\n" + yes_no_str_buttons
+
                 if not user.is_wrong_input:
                     ''' Checking if user is being mistaken '''
                     if UserStatus.IsMistaken(message):
@@ -102,15 +109,10 @@ class Action:
                     if user.is_input_already_known:
                         user.is_input_already_known = False
                         if UserStatus.IsApproved(message):
-                            #user_input = user.convMemory[input_validation[Parser.Parser.FieldNameIndex]]
                             message = user.convMemory[input_validation[Parser.Parser.FieldNameIndex]]
                         elif UserStatus.IsDenied(message):
-                            str_to_print += "אוקיי בבקשה הזן את המידע מחדש\n"
+                            str_to_print += "אוקיי בבקשה הזן מחדש\n"
                             return str_to_print
-                        else:
-                            str_to_print = "אוקיי בבקשה הזן את המידע מחדש\n"
-                            return str_to_print
-
                     ''' Saving input in an input dict '''
                     if len(user.inputs_arr) == user.index_input_arr:
                         user.inputs_arr.append([])
@@ -133,37 +135,41 @@ class Action:
                     user.convMemory[input_validation[Parser.Parser.FieldNameIndex]] = message
                 user.row_index += 1
                 return self.StartConversation(user, message)
-        # Got all data and now confirms it
-        else:
-            if user.is_input_saved and not user.is_approve_details:
-                str_to_print += "אימות פרטים:\n"
-                for inputObj in user.inputs_arr:
-                    if inputObj[1].fieldName in user.convMemory:
-                        str_to_print += inputObj[1].fieldName.replace("-", " ") + ": " + "\n"
-                        str_to_print += user.convMemory[inputObj[1].fieldName] + "\n"
-                str_to_print += "פרטיך נכונים?" + '\n' + yes_no_str_buttons
-                user.is_approve_details = True
-                user.is_asked_yes_no_question = True
-                return str_to_print
-            elif user.is_input_saved and user.is_approve_details:
-                ''' TODO: change this later - it goes through all conversation again '''
-                if UserStatus.IsDenied(message) or UserStatus.IsMistaken(message):
-                    user.inputs_arr = []
-                    user.row_index = 0
-                    user.index_input_arr = 0
-                    user.is_mistaken = False
+            # Got all data and now confirms it
+            elif row_input.find("אימות") > -1:
+                if user.is_input_saved and not user.is_approve_details:
+                    str_to_print += "אימות פרטים:\n"
+                    for inputObj in user.inputs_arr:
+                        if inputObj[1].fieldName in user.convMemory:
+                            str_to_print += inputObj[1].fieldName.replace("-", " ") + ": " + "\n"
+                            str_to_print += user.convMemory[inputObj[1].fieldName] + "\n"
+                    str_to_print += "האם פרטיך נכונים?" + '\n' + yes_no_str_buttons
+                    user.is_approve_details = True
+                    user.is_asked_yes_no_question = True
+                    return str_to_print
+                elif user.is_input_saved and user.is_approve_details:
+                    ''' TODO: change this later - it goes through all conversation again '''
+                    if UserStatus.IsDenied(message) or UserStatus.IsMistaken(message):
+                        user.inputs_arr = []
+                        user.row_index = 0
+                        user.index_input_arr = 0
+                        user.is_mistaken = False
+                        user.is_input_saved = False
+                        user.is_input_already_known = False
+                        user.is_approve_details = False
+                        return self.StartConversation(user, message)
+                    elif not UserStatus.IsApproved(message):
+                        return "לצערי לא הבנתי. פרטיך נכונים?"
                     user.is_input_saved = False
-                    user.is_input_already_known = False
-                    user.is_approve_details = False
-                    return self.StartConversation(user, message)
-                elif not UserStatus.IsApproved(message):
-                    return "לצערי לא הבנתי. פרטיך נכונים?"
-                user.is_input_saved = False
-            if user.is_approve_details or not user.is_input_saved:
-                str_to_print = EndConversation(user, message, [str_to_print])
-
+                if user.is_approve_details or not user.is_input_saved:
+                    str_to_print = EndConversation(user, message, [str_to_print])
+        else:
+            str_to_print = EndConversation(user, message, [str_to_print])
         file.close()
         return str_to_print
+
+    def intent_name_heb(self):
+        return self.entityNameHeb + ' ' + self.actionNameHeb
 
 def EndConversation(user, message, str_by_ref):
     if not UserStatus.IsDenied(message):

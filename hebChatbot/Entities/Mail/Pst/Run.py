@@ -7,5 +7,5 @@ url = "https://support.office.com/en-us/article/" \
 
 
 def run(dict, str_by_ref):
-    str_by_ref[0] += '<a href=' + url + '>Pst in outlook</a>\n'
+    str_by_ref[0] += '\n<a target="_blank" href=' + url + '>Pst in outlook</a>\n\n'
     # webbrowser.open(url, new=new)
