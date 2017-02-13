@@ -5,7 +5,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import User
 import hebChatbot
 import simplejson
-
+from States import States
 # TODO a class for global variables like that
 ResetUserChat = "פניה חדשה"
 
@@ -60,29 +60,43 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         data = simplejson.loads(self.data_string)
         client_ip = self.getUrl(paramDic)
 
+        message = data['message']
+        answer = ""
 
-        print(CONVERSATION_STUCK[client_ip])
-        # Check if user is stuck and reset his conversation
-        if CONVERSATION_STUCK[client_ip] < 1:
-            message = data['message']
+
+        if USERS_PREV_STATE[client_ip] == USERS[client_ip] and not States.is_edge_state(USERS[client_ip].CURRENT_STATE):
+            CONVERSATION_STUCK[client_ip] += 1
         else:
-            message = ResetUserChat
             CONVERSATION_STUCK[client_ip] = 0
-
+        print("Stuck Times: " + str(CONVERSATION_STUCK[client_ip]))
         print(message)
         if len(message) > 0:
             user_message = User.UserMessage(USERS[client_ip], message)
-            self.wfile.write(bytes(hebChatbot.Start(user_message), "utf-8"))
-        else:
-            self.wfile.write(bytes('?', "utf-8"))
+            answer += hebChatbot.Start(user_message)
+        else:# No message. Blocked in client side but who knows
+            answer = "?"
 
-        if USERS_PREV_STATE[client_ip] == USERS[client_ip]:
-            CONVERSATION_STUCK[client_ip] += 1
-        else:
-            USERS_PREV_STATE[client_ip].make_equal(USERS[client_ip])
+        # Check if user is stuck and reset his conversation
+        if CONVERSATION_STUCK[client_ip] >= 2 and not States.is_edge_state(USERS[client_ip].CURRENT_STATE):
+            # Checking third mistake
+            if USERS_PREV_STATE[client_ip] == USERS[client_ip]:
+                # Reset chat
+                message = ResetUserChat
+                user_message = User.UserMessage(USERS[client_ip], message)
+                answer = "לא הצלחתי להבין אותך, אני ממליץ לפנות טלפונית ל-012 שלוחה 3.\n"
+                answer += hebChatbot.Start(user_message)
+
+            CONVERSATION_STUCK[client_ip] = 0
+
+        self.wfile.write(bytes(answer, "utf-8"))
+        # self.wfile.write(answer.encode("utf-8"))
+        USERS_PREV_STATE[client_ip].make_equal(USERS[client_ip])
 
     def getUrl(self, paramDic):
         client_ip = paramDic["client_ip"]
+
+        # return client_ip
+        # TODO For checking two users locally
         port = paramDic["port"]
         return client_ip + ":" + str(port)
 
@@ -96,6 +110,9 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 
         return paramsDic
 
+    def remove_unwanted_characters(self, message):
+        # TODO implement this method so we won't get unwanted characters
+        return message
 def run():
     print("preparing chatbot...")
     hebChatbot.InitEntities()

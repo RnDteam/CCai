@@ -1,12 +1,16 @@
 import webbrowser
-new = 2 # open in a new tab, if possible
+import socket
+from uuid import getnode as get_mac
+import os
+import subprocess
+import fileinput
+import time
+from MashalRequest import OpenMashal
 
-# open a public URL, in this case, the webbrowser docs
-url = "https://support.office.com/en-us/article/" \
-      "Create-an-Outlook-Data-File-pst-to-save-your-information-17a13ca2-df52-48e8-b933-4c84c2aabe7c"
-
+problem_reason = "פניה ישירה"
 
 def run(dict, str_by_ref):
-    return
-    # str_by_ref[0] += '<a target="_blank" href=' + url + '>Pst in outlook</a>\n'
-    # webbrowser.open(url, new=new)
+    if not "סיבת-פניה" in dict:
+        dict["סיבת-פניה"] = problem_reason
+
+    OpenMashal.open_mashal(dict, str_by_ref, problem_reason)

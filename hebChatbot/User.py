@@ -36,7 +36,9 @@ class User():
 
     def __init__(self, ip):
         self.ip = ip
-        self.convMemory = {}
+        self.convMemory = {
+            "איי-פי": ip
+        }
         self.resetUser()
 
     def resetUser(self):

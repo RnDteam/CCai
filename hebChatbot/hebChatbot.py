@@ -90,10 +90,11 @@ def Start(user_message):
     if message == ResetUserChat:
         user.resetUser()
         message = "בוא נתחיל"
+
     if user.CURRENT_STATE == States.States.EntityExtraction:
         Logger.Log.DebugPrint("States.EntityExtraction")
         if message == "בוא נתחיל":
-            str_to_print += "אז... במה אני יכול לעזור?"
+            str_to_print += "במה אני יכול לעזור?"
         elif message == "תדריך אותי":
             str_to_print += "אני די חדש בתחום. ולכן, אני יודע לעשות מספר פעלות מצומצמות.\n תראה כמה דוגמאות\n" + str_actions + "\n"
             str_to_print += "במידה ואתה רוצה לעשות פעולה אחרת, אתה מוזמן בכל זאת לנסות.\n"
@@ -103,7 +104,7 @@ def Start(user_message):
 
             if user.is_clear == False:
                 if user.is_mistaken == False:
-                    str_to_print = "אני די חדש בתחום. ולכן, אני יודע לעשות מספר פעלות מצומצמות.\n תראה כמה דוגמאות\n" + str_actions
+                    str_to_print = "לא הבנתי אותך... \n אני די חדש בתחום. ולכן, אני יודע לעשות מספר פעלות מצומצמות.\n תראה כמה דוגמאות\n" + str_actions
                 else:
                     str_to_print = "אוקיי אז במה תרצה שאטפל?\n"
                     user.is_mistaken = False
