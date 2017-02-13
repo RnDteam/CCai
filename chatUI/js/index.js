@@ -209,7 +209,7 @@
     num=0
     websocket.onmessage = function (event) {
         message = decode_utf8(event.data);
-        if ((event.data).indexOf('{') == 0){
+        if (message.indexOf('{') != -1){
             var str = (message).split('{');
             var str2 = (str[1]).split('|');
             var str3 = str2[1].split('}')
