@@ -1,0 +1,6 @@
+Run Morphological Analysis Server
+D:\HackatonTeam3\src>
+java -cp trove-2.0.2.jar;morphAnalyzer.jar;opennlp.jar;gnu.jar;chunker.jar;splitsvm.jar;duck1.jar;tagger.jar;D:\HackatonTeam3\src Server.HebMorphServer D:\HackatonTeam3\src\
+
+Compile Java file in Morphological Analysis project
+javac -cp tagger.jar;chunker.jar Server\HebMorphServer.java -encoding CP1255

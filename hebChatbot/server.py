@@ -6,12 +6,17 @@ import User
 import hebChatbot
 import simplejson
 from States import States
+from MorphologicalAnalysisClient import MorphologicalAnalysisClient
 # TODO a class for global variables like that
 ResetUserChat = "פניה חדשה"
 
 USERS = {}
 USERS_PREV_STATE = {}
 CONVERSATION_STUCK = {}
+
+## test
+MorphologicalAnalysisClient.connect_morphological_analysis()
+
 
 # HTTPRequestHandler class
 class MyRequestHandler(BaseHTTPRequestHandler):
@@ -61,6 +66,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         client_ip = self.getUrl(paramDic)
 
         message = data['message']
+        message = MorphologicalAnalysisClient.get_morphological_analysis_message(message)
         answer = ""
 
 
@@ -69,7 +75,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         else:
             CONVERSATION_STUCK[client_ip] = 0
         print("Stuck Times: " + str(CONVERSATION_STUCK[client_ip]))
-        print(message)
+
         if len(message) > 0:
             user_message = User.UserMessage(USERS[client_ip], message)
             answer += hebChatbot.Start(user_message)
