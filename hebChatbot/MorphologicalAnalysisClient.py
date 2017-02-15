@@ -20,6 +20,7 @@ class MorphologicalAnalysisClient:
         data = MorphologicalAnalysisClient.sock.recv(1024)
         text = (data.decode(ENCODING_TYPE))
         words = text.replace("^"," ")
+        print(words)
         return words
     """
         	String answerToClient = "";
