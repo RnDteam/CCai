@@ -1,0 +1,97 @@
+הרכבת	2168848384
+הממשלה	1095106564
+
+השאלה
+	Lemma: שאלה
+	POS: noun
+	POS type: unspecified
+	Gender: feminine
+	Number: singular
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: true
+	Prefixes: None
+	Suffix: None
+	NER: O
+	Chunk: B-NP
+עכשיו
+	Lemma: עכשיו
+	POS: adverb
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+	NER: O
+	Chunk: O
+היא
+	Lemma: הוא
+	POS: copula
+	POS type: unspecified
+	Gender: feminine
+	Number: singular
+	Person: 3
+	Status: unspecified
+	Tense: beinoni
+	Polarity: positive
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+	NER: O
+	Chunk: O
+מה
+	Lemma: מה
+	POS: interrogative
+	POS type: pronoun
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+	NER: O
+	Chunk: B-NP
+הלאה
+	Lemma: הלאה
+	POS: adverb
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+	NER: O
+	Chunk: O
+.
+	Lemma: .
+	POS: punctuation
+	POS type: dot
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+	NER: O
+	Chunk: O
+
+
+----------------------------------------------------------------------
+

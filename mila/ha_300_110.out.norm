@@ -1,0 +1,7 @@
+H$ALH	Lemma:$ALH	POS:NN	POS-type:NA	GEN:F	NUM:S	PER:NA	Status:abs	Tense:NA	Pol:NA	Def:+	NER:O	Chunk:B-NP
+EK$IW	Lemma:EK$IW	POS:ADV	POS-type:NA	GEN:NA	NUM:NA	PER:NA	Status:NA	Tense:NA	Pol:NA	Def:-	NER:O	Chunk:O
+HIA	Lemma:HWA	POS:COPULA	POS-type:NA	GEN:F	NUM:S	PER:3	Status:NA	Tense:beinoni	Pol:+	Def:-	NER:O	Chunk:O
+MH	Lemma:MH	POS:INTER	POS-type:PRON	GEN:NA	NUM:NA	PER:NA	Status:NA	Tense:NA	Pol:NA	Def:-	NER:O	Chunk:B-NP
+HLAH	Lemma:HLAH	POS:ADV	POS-type:NA	GEN:NA	NUM:NA	PER:NA	Status:NA	Tense:NA	Pol:NA	Def:-	NER:O	Chunk:O
+.	Lemma:.	POS:PUNCT	POS-type:dot	GEN:NA	NUM:NA	PER:NA	Status:NA	Tense:NA	Pol:NA	Def:-	NER:O	Chunk:O
+----------------------------------------------------------------------

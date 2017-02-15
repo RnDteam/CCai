@@ -1,0 +1,5 @@
+type:ovr:__OTHER__
+I-NP B-NP O
+0 B-NP I-NP
+1 B-NP O
+2 I-NP O

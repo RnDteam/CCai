@@ -1,0 +1,21 @@
+המשומן	13510800513302532
+ 
+המשומן
+	Lemma: שומן
+	POS: participle
+	POS type: noun/adjective
+	Gender: masculine
+	Number: singular
+	Person: any
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: true
+	Prefixes: None
+	Suffix: None
+	NER: O
+	Chunk: O
+
+
+----------------------------------------------------------------------
+

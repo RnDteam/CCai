@@ -1,0 +1,1018 @@
+הרכבת	2168848384
+ הממשלה	1095106564
+ הסתיימה	15762607710208000
+ 
+הבית	1093009412
+ הלבן	1092681732
+ החליט	6755408453369856
+ להקפיא	6755450981515264
+ את	262144
+ תכניות	1111883776
+ ממשל	1093009408
+ בוש	655360
+ להציב	6755450981515264
+ מערך	2166751232
+ הגנה	1095106560
+ אמריקאי	1092681728
+ נגד	524288
+ טילים	1109786624
+ בפולין	655424
+ ובצ'כיה	655426
+ ,	917513
+ כך	144115188076445696
+ דיווח	11259008080740352
+ הבוקר	1093009412
+ (	917512
+ חמישי	1093079040
+ )	917505
+ העיתון	1093009412
+ וול	655360
+ סטריט	655360
+ ג'ורנל	655360
+ .	917632
+ 
+
+Same data can be retrieved by AnalysisInterface:
+הבית
+	Lemma: בית
+	POS: noun
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: true
+	Prefixes: None
+	Suffix: None
+הלבן
+	Lemma: לבן
+	POS: adjective
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: true
+	Prefixes: None
+	Suffix: None
+החליט
+	Lemma: החליט
+	POS: verb
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: 3
+	Status: unspecified
+	Tense: past
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+להקפיא
+	Lemma: הקפיא
+	POS: verb
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: infinitive
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+את
+	Lemma: את
+	POS: preposition
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+תכניות
+	Lemma: תוכנית
+	POS: noun
+	POS type: unspecified
+	Gender: feminine
+	Number: plural
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+ממשל
+	Lemma: ממשל
+	POS: noun
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+בוש
+	Lemma: בוש
+	POS: properName
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+להציב
+	Lemma: הציב
+	POS: verb
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: infinitive
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+מערך
+	Lemma: מערך
+	POS: noun
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: unspecified
+	Status: construct
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+הגנה
+	Lemma: הגנה
+	POS: noun
+	POS type: unspecified
+	Gender: feminine
+	Number: singular
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+אמריקאי
+	Lemma: אמריקני
+	POS: adjective
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+נגד
+	Lemma: נגד
+	POS: preposition
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+טילים
+	Lemma: טיל
+	POS: noun
+	POS type: unspecified
+	Gender: masculine
+	Number: plural
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+בפולין
+	Lemma: ב^פולין
+	POS: properName
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: ב  preposition 
+	Suffix: None
+ובצ'כיה
+	Lemma: ו^ב^צ'כיה
+	POS: properName
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: ו  conjunction ב  preposition 
+	Suffix: None
+,
+	Lemma: ,
+	POS: punctuation
+	POS type: comma
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+כך
+	Lemma: כך
+	POS: pronoun
+	POS type: demonstrative
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+דיווח
+	Lemma: דיווח
+	POS: verb
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: 3
+	Status: unspecified
+	Tense: past
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+הבוקר
+	Lemma: בוקר
+	POS: noun
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: true
+	Prefixes: None
+	Suffix: None
+(
+	Lemma: (
+	POS: punctuation
+	POS type: bracket-end
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+חמישי
+	Lemma: ORD5
+	POS: numeral
+	POS type: numeral ordinal
+	Gender: masculine
+	Number: singular
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+)
+	Lemma: )
+	POS: punctuation
+	POS type: bracket-start
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+העיתון
+	Lemma: עיתון
+	POS: noun
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: true
+	Prefixes: None
+	Suffix: None
+וול
+	Lemma: וול
+	POS: properName
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+סטריט
+	Lemma: סטריט
+	POS: properName
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+ג'ורנל
+	Lemma: ג'ורנל
+	POS: properName
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+.
+	Lemma: .
+	POS: punctuation
+	POS type: dot
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+
+
+Named-Entities:
+
+הבית	I_ORG
+הלבן	I_ORG
+החליט
+להקפיא
+את
+תכניות
+ממשל
+בוש	I_PERS
+להציב
+מערך
+הגנה
+אמריקאי
+נגד
+טילים
+בפולין	I_LOC
+ובצ'כיה	B_LOC
+,
+כך
+דיווח
+הבוקר
+(
+חמישי	I_DATE
+)
+העיתון
+וול	I_ORG
+סטריט	I_ORG
+ג'ורנל	I_ORG
+.
+
+
+
+
+----------------------------------------------------------------------
+
+צעד	1093009408
+ זה	144115188497973248
+ ,	917513
+ דווח	13510807894425600
+ מפי	2166751296
+ גורמים	1109786624
+ המקרובים	1109786628
+ לנושא	1093009476
+ ,	917513
+ נועד	4503608639684608
+ להפיג	6755450981515264
+ את	262144
+ המתחים	1109786628
+ הגוברים	2251801461653508
+ בין	524288
+ וושינגטון	655360
+ למוסקווה	655424
+ .	917632
+ 
+
+Same data can be retrieved by AnalysisInterface:
+צעד
+	Lemma: צעד
+	POS: noun
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+זה
+	Lemma: זה
+	POS: pronoun
+	POS type: demonstrative
+	Gender: masculine
+	Number: singular
+	Person: 3
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+,
+	Lemma: ,
+	POS: punctuation
+	POS type: comma
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+דווח
+	Lemma: דווח
+	POS: verb
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: 3
+	Status: unspecified
+	Tense: past
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+מפי
+	Lemma: מ^פה
+	POS: noun
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: unspecified
+	Status: construct
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: מ  preposition 
+	Suffix: None
+גורמים
+	Lemma: גורם
+	POS: noun
+	POS type: unspecified
+	Gender: masculine
+	Number: plural
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+המקרובים
+	Lemma: המקרובים
+	POS: noun
+	POS type: unspecified
+	Gender: masculine
+	Number: plural
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: true
+	Prefixes: None
+	Suffix: None
+לנושא
+	Lemma: ל^נושא
+	POS: noun
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: true
+	Prefixes: ל  preposition 
+	Suffix: None
+,
+	Lemma: ,
+	POS: punctuation
+	POS type: comma
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+נועד
+	Lemma: נועד
+	POS: verb
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: 3
+	Status: unspecified
+	Tense: past
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+להפיג
+	Lemma: הפיג
+	POS: verb
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: infinitive
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+את
+	Lemma: את
+	POS: preposition
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+המתחים
+	Lemma: מתח
+	POS: noun
+	POS type: unspecified
+	Gender: masculine
+	Number: plural
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: true
+	Prefixes: None
+	Suffix: None
+הגוברים
+	Lemma: גבר
+	POS: participle
+	POS type: noun/adjective
+	Gender: masculine
+	Number: plural
+	Person: any
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: true
+	Prefixes: None
+	Suffix: None
+בין
+	Lemma: בין
+	POS: preposition
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+וושינגטון
+	Lemma: ושינגטון
+	POS: properName
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+למוסקווה
+	Lemma: ל^מוסקבה
+	POS: properName
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: ל  preposition 
+	Suffix: None
+.
+	Lemma: .
+	POS: punctuation
+	POS type: dot
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+
+
+Named-Entities:
+
+צעד
+זה
+,
+דווח
+מפי
+גורמים
+המקרובים
+לנושא
+,
+נועד
+להפיג
+את
+המתחים
+הגוברים
+בין
+וושינגטון	I_LOC
+למוסקווה	I_LOC
+.
+
+
+
+
+----------------------------------------------------------------------
+
+ביטול	2166751232
+ התוכנית	1095106564
+ יתקבל	15762633477914624
+ בברכה	1095106628
+ ברוסיה	655424
+ ובגרמניה	655426
+ ,	917513
+ אך	18014398509678592
+ עלול	557056000
+ לפגוע	2251851354144768
+ ביחסי	2183528512
+ ארה"ב	655360
+ עם	524288
+ פולין	655360
+ ובעלות	2168848386
+ ברית	2168848384
+ אחרות	1111556096
+ באירופה	655424
+ .	917632
+ 
+
+Same data can be retrieved by AnalysisInterface:
+ביטול
+	Lemma: ביטול
+	POS: noun
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: unspecified
+	Status: construct
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+התוכנית
+	Lemma: תוכנית
+	POS: noun
+	POS type: unspecified
+	Gender: feminine
+	Number: singular
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: true
+	Prefixes: None
+	Suffix: None
+יתקבל
+	Lemma: התקבל
+	POS: verb
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: 3
+	Status: unspecified
+	Tense: future
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+בברכה
+	Lemma: ב^בריכה
+	POS: noun
+	POS type: unspecified
+	Gender: feminine
+	Number: singular
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: true
+	Prefixes: ב  preposition 
+	Suffix: None
+ברוסיה
+	Lemma: ב^רוסי
+	POS: properName
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: ב  preposition 
+	Suffix: None
+ובגרמניה
+	Lemma: ו^ב^גרמני
+	POS: properName
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: ו  conjunction ב  preposition 
+	Suffix: None
+,
+	Lemma: ,
+	POS: punctuation
+	POS type: comma
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+אך
+	Lemma: אך
+	POS: conjunction
+	POS type: coordinating
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+עלול
+	Lemma: עלול
+	POS: modal
+	POS type: unspecified
+	Gender: masculine
+	Number: singular
+	Person: any
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+לפגוע
+	Lemma: פגע
+	POS: verb
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: infinitive
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+ביחסי
+	Lemma: ב^יחס
+	POS: noun
+	POS type: unspecified
+	Gender: masculine
+	Number: plural
+	Person: unspecified
+	Status: construct
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: ב  preposition 
+	Suffix: None
+ארה"ב
+	Lemma: ארה"ב
+	POS: properName
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+עם
+	Lemma: עם
+	POS: preposition
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+פולין
+	Lemma: פולין
+	POS: properName
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+ובעלות
+	Lemma: ו^בעלות
+	POS: noun
+	POS type: unspecified
+	Gender: feminine
+	Number: singular
+	Person: unspecified
+	Status: construct
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: ו  conjunction 
+	Suffix: None
+ברית
+	Lemma: ברייה
+	POS: noun
+	POS type: unspecified
+	Gender: feminine
+	Number: singular
+	Person: unspecified
+	Status: construct
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+אחרות
+	Lemma: אחר
+	POS: adjective
+	POS type: unspecified
+	Gender: feminine
+	Number: plural
+	Person: unspecified
+	Status: absolute
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+באירופה
+	Lemma: ב^אירופה
+	POS: properName
+	POS type: unspecified
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: ב  preposition 
+	Suffix: None
+.
+	Lemma: .
+	POS: punctuation
+	POS type: dot
+	Gender: unspecified
+	Number: unspecified
+	Person: unspecified
+	Status: unspecified
+	Tense: unspecified
+	Polarity: unspecified
+	Definiteness: false
+	Prefixes: None
+	Suffix: None
+
+
+Named-Entities:
+
+ביטול
+התוכנית
+יתקבל
+בברכה
+ברוסיה	I_LOC
+ובגרמניה	B_LOC
+,
+אך
+עלול
+לפגוע
+ביחסי
+ארה"ב	I_LOC
+עם	B_LOC
+פולין	I_LOC
+ובעלות
+ברית
+אחרות
+באירופה	I_LOC
+.
+
+
+
+
+----------------------------------------------------------------------
+
