@@ -35,7 +35,9 @@ class SimpleChat(WebSocket):
       for client in clients:
          if client.address[1] == self.address[1]:
             try:
-               r = requests.post(CHATBOT_URL, json= { "message": self.data }, params={"client_ip": self.address[0], "port": self.address[1]})
+               r = requests.post(CHATBOT_URL, json= { "mess"
+                                                      ""
+                                                      "age": self.data }, params={"client_ip": self.address[0], "port": self.address[1]})
                client.sendMessage(r.text)
             except Exception as e:
                print(e)
