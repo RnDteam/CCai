@@ -6,6 +6,7 @@ import User
 import hebChatbot
 import simplejson
 from States import States
+import codecs
 # TODO a class for global variables like that
 ResetUserChat = "פניה חדשה"
 
@@ -69,7 +70,6 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         else:
             CONVERSATION_STUCK[client_ip] = 0
         print("Stuck Times: " + str(CONVERSATION_STUCK[client_ip]))
-        print(message)
         if len(message) > 0:
             user_message = User.UserMessage(USERS[client_ip], message)
             answer += hebChatbot.Start(user_message)
