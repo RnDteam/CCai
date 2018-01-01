@@ -360,8 +360,10 @@ canvas {
   background: white;
   border-bottom: none;
   position: absolute;
+  text-align:right;
   bottom: 0px;
 }
+
 .list-chat.shown {
   animation: fade-up 0.444s 1 ease-out;
 }
@@ -510,18 +512,18 @@ ul.list li .mdi-menu-down {
 .style-bg{
     background-color:#476e9e;
 }
-.sendbtns{
-    position:absolute;
-    left:5px;
-    top:15%
-}
 .button.disabled {
   opacity: 0.65;
   cursor: not-allowed;
 }
 
 
-
+.half-bar {
+    display: inline-block;
+    width: calc(50% - 2px);
+    text-align: center;
+    border: 1px solid lightgrey;
+}
 
 
 

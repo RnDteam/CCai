@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<a1>hey choose b1 or b2
-    <b1> choose a0
-        <a0> choose a2
-            <a2>choose a3
-                <a3></a3>
-            </a2>
-        </a0>
-    </b1>
-    <b2>choose c1
-        <c1></c1>
-    </b2>
-</a1>
+<node value="a1" id="0">hey choose b1 or b2
+    <node value="b1" id="1"> choose a0
+        <node value="a0" id="2"> choose a2
+            <node value="a2" id="3">choose a3
+                <node value="a3" id="4"></node>
+            </node>
+        </node>
+    </node>
+    <node value="b2" id="5">choose c1
+        <node value="c1" id="6" link="2">go to 2</node>
+    </node>
+</node>

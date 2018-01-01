@@ -20,6 +20,8 @@
         else
             $('div.list-chat > ul').append('<li><img src="'+name+'""><div class="message"><p>' + text + '</p></div></li>');
         last = name
+
+        scrollDown()
     }
 
     function msgEvt(message) {
@@ -30,7 +32,7 @@
     }
 
     num=0
-
+    num_disabled = 0
 
     websocket.onmessage = function (event) {
         var text = decode_utf8(event.data);
@@ -60,16 +62,23 @@
         message = xmlDoc.getElementsByTagName("text")[0];
 
         addMsg('ccai.jpg',message.innerHTML)
-        //msgEvt(message)
+
+        scrollDown()
     }
 
     function clickBtn(btn){
-        addMsg('tsvika.jpg',btn.value)
-        websocket.send(btn.value)
-        for(i=0; i<num;i++){
+        value = btn.value
+        if (value == null)
+            value = btn.title
+        addMsg('tsvika.jpg',value)
+        websocket.send(value)
+        for(i=num_disabled; i<num;i++){
             document.getElementById("btn"+i).disabled=true;
-            document.getElementById("btn"+i).className = "button disabled";        }
+            document.getElementById("btn"+i).className = "button disabled";
+        }
+        num_disabled = num;
         scrollDown()
+
     }
     function scrollDown(){
         var objDiv = document.getElementById("list-chat");
