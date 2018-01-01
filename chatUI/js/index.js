@@ -49,13 +49,11 @@
         for (i=0; i< list.length; i++){
             b = xmlDoc.createElement("button");
             b.type = "button"
-            b.className ="btn"
+            b.className ="button"
             b.id = "btn" + num
             b.innerHTML = list[i].innerHTML
-            b.setAttribute("background-color","#476e9e");
             b.setAttribute("onclick", "clickBtn(this)");
             b.setAttribute("value",  list[i].innerHTML);
-            b.setAttribute("onmouseover", "hover(this)")
             xmlDoc.documentElement.replaceChild(b, list[i]);
             num += 1
         }
@@ -70,8 +68,7 @@
         websocket.send(btn.value)
         for(i=0; i<num;i++){
             document.getElementById("btn"+i).disabled=true;
-            document.getElementById("btn"+i).setAttribute("background-color","#44668f");
-        }
+            document.getElementById("btn"+i).className = "button disabled";        }
         scrollDown()
     }
     function scrollDown(){

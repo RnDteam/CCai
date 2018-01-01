@@ -515,7 +515,33 @@ ul.list li .mdi-menu-down {
     left:5px;
     top:15%
 }
-.btn {
+.button.disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+
+
+
+
+
+/* button code for illustration only */
+
+body {
+  background: #000;
+}
+
+.buttons {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.button, .button.disabled:hover {
+    font-family:arial, helvetica, sans-serif;
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+    text-align: center;
 	padding:3px 7px;
     margin-top: 0.3em;
     margin-bottom: 0.3em;
@@ -529,21 +555,24 @@ ul.list li .mdi-menu-down {
 	border-radius:6px;
 	border:1px solid #4e6096;
 	display:inline-block;
-	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
+	background-color:#44668f;
+
 	text-decoration:none;
 	text-shadow:0px 1px 0px #283966;
 }
-.btn:hover {
-	background-color:#44668f;
+.button.disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
 }
-.btn:active {
-	position:relative;
-	top:1px;
+
+.button:hover{
+    border:1px solid #1c5675;
+    background-color: #26759e;
 }
+
 
 .mdi-send {
   color: #666666;

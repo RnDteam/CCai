@@ -20,3 +20,9 @@ class Conversation:
             if msg == child.tag:
                 self.current_node = child
                 return self.get_node_answer()
+
+    def back_to_start(self):
+        self.current_node = self.root
+        return self.get_node_answer()
+
+    #def one_step_back(self):

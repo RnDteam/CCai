@@ -11,20 +11,6 @@
 <link rel='stylesheet prefetch' href='css/fonts.css'>
       <link rel="stylesheet" href="css/style.css">
 </head>
-<script>
-
-    function disable(btn){
-        document.getElementById(btn).disabled=true;
-        document.getElementById(btn).setAttribute("background-color","#8091a7");
-    }
-    function hover(btn){
-        btn.setAttribute("background-color","#44668f");
-    }
-    function enable(btn){
-        document.getElementById(btn).setAttribute("background-color","#476e9e");
-    }
-
-</script>
 
 <body>
 <div id="hangout">
@@ -46,10 +32,8 @@
 
         <div class="sendbtns">
             <i class="mdi mdi-send" style="padding-bottom: 3px;"> </i>
-        <button type="button" class="btn" id="Mistake" style="background-color:#44668f" onmouseover="hover(this)"
-                value="טעיתי" onclick="clickBtn(this)">טעיתי</button>
-        <button type="button" class="btn" id="ResetChat" style="background-color:#44668f" onmouseover="hover(this)"
-                value="פניה חדשה" onclick="clickBtn(this)">פניה חדשה</button>
+        <button type="button" class="button" id="Mistake" value="טעיתי" onclick="clickBtn(this)">טעיתי</button>
+        <button type="button" class="button" id="ResetChat" value="פניה חדשה" onclick="clickBtn(this)">פניה חדשה</button>
        </div>
 
 
