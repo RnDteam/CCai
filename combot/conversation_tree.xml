@@ -1,14 +1,23 @@
 <?xml version="1.0"?>
 
-<node value="a1" id="0">hey choose b1 or b2
-    <node value="b1" id="1"> choose a0
-        <node value="a0" id="2"> choose a2
-            <node value="a2" id="3">choose a3
-                <node value="a3" id="4"></node>
-            </node>
+<node id="0">
+רוצה לאכול או לישון
+    <node id="1">
+        לאכול
+        <node id="2">
+            למה לא אכלת
         </node>
     </node>
-    <node value="b2" id="5">choose c1
-        <node value="c1" id="6" link="2"></node>
+    <node id="3">
+לישון
+        <node id="4">
+            אתה רוצה כוכב או לב
+        <node>
+            כוכב
+        </node >
+            <node id="5">
+                לב
+            </node>
+        </node>
     </node>
 </node>
