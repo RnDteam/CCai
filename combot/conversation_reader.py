@@ -3,12 +3,13 @@ import xml.etree.ElementTree as Et
 mistake_msg = "טעיתי"
 startover_msg = "פניה חדשה"
 
+
 class Conversation:
     def __init__(self):
         tree = Et.parse('conversation_tree.xml')
         self.root = tree.getroot()
         self.current_node = self.root
-        self.parent_map = dict((c, p) for p in tree.getiterator() for c in p)
+        self.path = []
 
     def get_node_answer(self):
         link = self.current_node.attrib.get('link')
@@ -19,7 +20,7 @@ class Conversation:
             answer += "<button>"+child.attrib.get('value')+"</button>"
         if answer is None:
             return self.back_to_start()
-        return "<text>"+answer+"</text>"
+        return "<text>"+answer+"<image>user.png</image>"+"</text>"
 
     def answer(self, msg):
         if msg == mistake_msg:
@@ -28,6 +29,7 @@ class Conversation:
             return self.back_to_start()
         for child in self.current_node:
             if msg == child.attrib.get('value'):
+                self.path.append(self.current_node)
                 self.current_node = child
                 return self.get_node_answer()
 
@@ -36,7 +38,7 @@ class Conversation:
         return self.get_node_answer()
 
     def one_step_back(self):
-        self.current_node = self.parent_map.get(self.current_node)
-        if self.current_node is None:
-            self.current_node = self.root
+        if len(self.path) == 0:
+            return self.back_to_start()
+        self.current_node = self.path.pop()
         return self.get_node_answer()

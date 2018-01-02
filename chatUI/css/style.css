@@ -337,6 +337,7 @@ canvas {
 .list-account.shown,
 .list-chat.shown {
   display: block;
+  background-color:#eaecf0;
   animation: fade 0.444s 1 ease-out;
   animation-fill-mode: alternate;
 }
